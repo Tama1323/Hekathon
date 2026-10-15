@@ -2,6 +2,8 @@
 
 Subtema ini berfokus pada solusi aksesibilitas informasi kesehatan, pemantauan kesehatan mental, asistensi penyandang disabilitas, dan telemedicine komunitas yang inklusif.
 
+> 📊 **Dokumen Riset & Analisis Data Terkini:** Baca analisis lengkap 4 krisis faskes inklusif di [ANALISIS_MASALAH_KESEHATAN_INKLUSIF.md](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/Lomba/hekathon/ANALISIS_MASALAH_KESEHATAN_INKLUSIF.md).
+
 ---
 
 ## 📌 Masalah Lapangan & Peluang Solusi

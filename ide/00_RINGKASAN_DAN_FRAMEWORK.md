@@ -17,6 +17,7 @@ Silakan buka dokumen spesifik di bawah untuk melihat rincian permasalahan lapang
 3. 🏪 [03. Digitalisasi Bisnis (Local MSME & Creative Economy)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/hekathon/ide/03_digitalisasi_bisnis_umkm.md)
 4. 🩺 [04. HealthTech & Care (Inclusive Health & Well-being)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/hekathon/ide/04_healthtech_care.md)
 5. 🏛️ [05. Pelayanan Publik (Civic Tech & Community Service)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/hekathon/ide/05_pelayanan_publik_civic_tech.md)
+6. 📊 [Dokumen Analisis Masalah Kesehatan Inklusif (Data Riset Faskes 2026)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/Lomba/hekathon/ANALISIS_MASALAH_KESEHATAN_INKLUSIF.md)
 
 ---
 
