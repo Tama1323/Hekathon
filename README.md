@@ -9,5 +9,5 @@ Repositori proyek hackathon tim Logicodix 2026.
 
 ## Kolaborator
 - **Tama1323** (Admin)
-- **fallenheadphone**
+- **fal**
 - **relianxd**
