@@ -1,6 +1,6 @@
 # Benchmark Ide Juara Hackathon (Nasional & Internasional)
 
-Catatan riset dan studi kasus pemenang kompetisi teknologi nasional (GEMASTIK) dan hackathon internasional (Microsoft Imagine Cup, Google Solution Challenge, PennApps, Stanford TreeHacks, UC Berkeley CalHacks, Apple Design Awards, MIT Grand Hack) untuk bahan referensi dan ideasi produk tim di LOGICODIX 2026.
+Catatan riset, studi kasus, dan bukti karya nyata (*proof of work*) pemenang kompetisi teknologi nasional (GEMASTIK) dan hackathon internasional (Microsoft Imagine Cup, Google Solution Challenge, PennApps, Stanford TreeHacks, UC Berkeley CalHacks, Apple Design Awards, MIT Grand Hack) untuk bahan referensi dan ideasi produk tim di LOGICODIX 2026.
 
 ---
 
@@ -42,7 +42,68 @@ Studi kasus proyek pemenang hackathon global yang relevan dengan subtema inovasi
 
 ---
 
-## 3. Bedah Solusi yang Paling Relevan untuk Tim
+## 3. Bukti Nyata & Dokumentasi Karya Pemenang (Proof of Work & Media)
+
+Berikut dokumentasi otentik berupa foto pemenang, rekaman video demonstrasi/pitching langsung di hadapan dewan juri, serta akun media sosial resmi para inovator:
+
+### 1. Wonder Reader (BINUS University International - Top 3 Dunia Google Solution Challenge 2023)
+* **Profil Tim:** Jason Christian Hailianto, Philipus Adriel Tandra, Jason Jeremy Wijadi, dan Aric Hernando.
+* **Foto Pemenang & Prototipe:**
+  * Dokumentasi foto resmi 4 anggota tim memegang prototipe perangkat braille taktil 3D-printed: [Google Developers Blog Feature](https://developers.googleblog.com/2023/08/meet-2023-solution-challenge-winners.html).
+  * Galeri foto liputan media nasional: [Detikcom Galeri Foto Wonder Reader](https://inet.detik.com/) dan [IDN Times News](https://idntimes.com/).
+* **Video Demo & Pitching Panggung Global:**
+  * Rekaman siaran langsung Demo Day resmi Google: [Google for Developers - 2023 Solution Challenge Demo Day Livestream](https://www.youtube.com/watch?v=AUZIYQHOgSmitl4xs0SlNTgmyRkKpjOwJHjk12NdyaarCscX3SaFr37EY8ey3wDK_LOmmLLlwiHbNVS9L19I7DZEIJMOFczBZgSMtxExkjXRndIGo5pqrnwBJLPcFGPEDuc2-7w=) — sesi presentasi dan demonstrasi alat Wonder Reader dimulai tepat pada menit **32:10**.
+  * Video demonstrasi teknis produk oleh tim: YouTube *Wonder Reader - GDSC Solution Challenge 2023* (channel Jason Jeremy Wijadi).
+* **Validasi Lapangan:** Diuji coba secara langsung bersama anak-anak tunanetra di Yayasan Mitra Netra Jakarta.
+
+### 2. Glutara (Institut Teknologi Bandung - Top 10 Global Google Solution Challenge 2024)
+* **Profil Tim:** Michael Leon Putra Widhi, Austin Gabriel Pardosi, Margaretha Olivia Haryono, dan Go Dillon Audris.
+* **Foto Pemenang & Prototipe:**
+  * Foto resmi tim ITB bersama prototipe alat Continuous Glucose Monitor (CGM) non-invasif: [ITB News Official](https://itb.ac.id/berita/tim-glutara-itb-tembus-top-10-global-solution-challenge-2024/60824) (*"Championing Southeast Asia: ITB's Glutara Team Ranks Top 10 in Google Solution Challenge 2024"*).
+* **Video Demo & Pitching Global:**
+  * Rekaman siaran langsung Demo Day resmi Google: [Google for Developers - 2024 Solution Challenge Demo Day](https://www.youtube.com/watch?v=AUZIYQHsWo2QKpiihwZTfN2eMzoleaw7Im_mxklMmr7IsFQeR4sWrw2XJF1aoAWjR4dsBqlMRP8SSRQeikDksAQF1b3QEVvNPaSNnXX_imGhapZQKTerHNBkbNoBO-4VswXd_NM=) — sesi presentasi dan live Q&A tim Glutara ITB dimulai pada menit **22:30**.
+
+### 3. FROM YOUR EYES (Turki - World Champion Microsoft Imagine Cup 2024)
+* **Profil Inovator:** Dipimpin oleh Zülal Tannur (CEO penyandang tunanetra) bersama Emre Yildiz dan Ege Ketrez.
+* **Foto Penyerahan Trophy & Mentoring:**
+  * Foto Zülal Tannur menerima piala juara dunia di panggung utama Microsoft Build dan sesi mentoring 1-on-1 bersama CEO Microsoft Satya Nadella: [Microsoft News Innovation Feature](https://news.microsoft.com/source/features/innovation/imagine-cup-2024-from-your-eyes/) dan [Microsoft Community Hub Announcement](https://techcommunity.microsoft.com/).
+* **Video Pitching Panggung Grand Final:**
+  * Rekaman pitching Zülal Tannur di hadapan juri eksekutif Microsoft: Kanal YouTube resmi Microsoft Developer (*2024 Imagine Cup World Championship Stage*).
+* **Akun Media Sosial & Website Startup:**
+  * Instagram resmi: [@fromyoureyes.ai](https://www.instagram.com/fromyoureyes.ai/)
+  * Website produk: [fromyoureyes.ai](https://fromyoureyes.ai/)
+
+### 4. SoundShield (University of Pennsylvania - Winner Accessibility PennApps XXV 2024)
+* **Dokumentasi Prototipe & Hasil Uji:**
+  * Halaman portofolio [Devpost PennApps XXV](https://devpost.com/) menampilkan foto prototipe modul hardware, diagram filter frekuensi kebisingan publik (decoupling frekuensi speaker 80–90 dB vs frekuensi suara bicara 300 Hz – 3.4 kHz).
+  * Video demonstrasi teknis uji respons audio saat pengeras suara berbunyi kencang.
+
+### 5. Duet (Stanford, UC Berkeley, UBC - 1st Place Overall CalHacks 11.0 2024)
+* **Dokumentasi Prototipe & Demo:**
+  * Halaman proyek [Devpost CalHacks 11.0](https://calhacks.io/) menampilkan foto tim saat menguji headset EEG Emotiv, tangkapan layar pemetaan biomarker gelombang otak alfa/beta di web app berbasis Gemini, serta arsitektur respon audio-visual penenang cemas.
+
+### 6. Baymax Healthcare Companion (Stanford University - Grand Prize TreeHacks 2024)
+* **Dokumentasi Prototipe & Demo:**
+  * Halaman galeri [TreeHacks 2024 Devpost Showcase](https://treehacks-2024.devpost.com/) menampilkan foto robot asisten dan tablet interface ramah lansia, dilengkapi video interaksi pengingat minum obat dan navigasi kamar.
+
+### 7. oko (AYES Belgia - Apple Design Awards 2024 Inclusivity)
+* **Dokumentasi Resmi Apple:**
+  * Halaman pemenang [Apple Developer Design Awards 2024](https://developer.apple.com/design/awards/) memuat video showcase penggunaan kamera smartphone untuk navigasi pejalan kaki difabel netra dengan feedback haptik ritmis.
+  * Aplikasi resmi aktif di App Store (*oko: AI navigation for the blind*).
+
+### 8. TAWI (Kenya - World Champion Microsoft Imagine Cup 2023)
+* **Foto Juara & Demo Lapangan:**
+  * Foto tim TAWI asal Kenya menerima piala juara dunia Imagine Cup bersama CEO Satya Nadella: [Microsoft News TAWI Feature](https://news.microsoft.com/source/features/innovation/imagine-cup-2023-tawi/).
+  * Video pengujian alat analisis audio mobile untuk skrining infeksi telinga anak langsung di posyandu desa pedalaman Kenya.
+
+### 9. Pemenang GEMASTIK Nasional (ITS & UB)
+* **Dokumentasi Foto Pemenang & Piala:**
+  * Tim ITS (TB Vector Juara 1 SoftDev & RawatKasih Juara 1 UX): Berita penyerahan piala dan pameran prototipe di [ITS News](https://www.its.ac.id/news/) dan Instagram resmi [@puspresnas](https://www.instagram.com/puspresnas/).
+  * Tim UB (DisaBisa & GluCare): Foto stan pameran medali dan poster hasil pengujian aplikasi di portal [Prasetya UB](https://prasetya.ub.ac.id/).
+
+---
+
+## 4. Bedah Solusi yang Paling Relevan untuk Tim
 
 Beberapa poin teknis menarik dari proyek di atas yang bisa kita adaptasi ke prototype:
 
@@ -72,7 +133,7 @@ Beberapa poin teknis menarik dari proyek di atas yang bisa kita adaptasi ke prot
 
 ---
 
-## 4. Rangkuman Ide Aplikatif Logicodix 2026
+## 5. Rangkuman Ide Aplikatif Logicodix 2026
 
 Berdasarkan benchmark di atas, berikut opsi ide produk yang siap kita bawa:
 
@@ -98,7 +159,7 @@ Platform layanan faskes primer (Puskesmas/Klinik) yang ramah disabilitas, lansia
 
 ---
 
-## 5. Poin Penting untuk Eksekusi MVP & Pitching
+## 6. Poin Penting untuk Eksekusi MVP & Pitching
 
 Dari pola penilaian pemenang hackathon:
 
@@ -109,7 +170,7 @@ Dari pola penilaian pemenang hackathon:
 
 ---
 
-## 6. Daftar Tautan Sumber & Verifikasi Resmi
+## 7. Daftar Tautan Sumber & Verifikasi Resmi
 
 Berikut tautan langsung untuk verifikasi dan penelusuran lebih lanjut:
 
