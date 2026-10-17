@@ -62,7 +62,7 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 | Anggota | GitHub Profile | Peran (*Role*) | Fokus Tanggung Jawab |
 | :--- | :--- | :---: | :--- |
 | **Tama1323** | [@Tama1323](https://github.com/Tama1323) | **Hustler (Lead)** | Validasi masalah sosial, perumusan narasi pitching, proposal, dan manajemen submission. |
-| **fal** | [@fallenheadphone](https://github.com/fallenheadphone) | **Hacker (Dev)** | Arsitektur teknis MVP, integrasi model AI/API, backend flow, dan pengujian performa sistem. |
+| **blunt** | [@bluntforc0d3](https://github.com/bluntforc0d3) | **Hacker (Dev)** | Arsitektur teknis MVP, integrasi model AI/API, backend flow, dan pengujian performa sistem. |
 | **relianxd** | [@relianxd](https://github.com/relianxd) | **Hipster (UI/UX)** | Desain inklusif standar WCAG 2.2 AA (kontras tinggi, ramah disleksia), prototyping, dan alur human-centered. |
 | **fundamantalist** | [@fundamantalist](https://github.com/fundamantalist) | **AI & Data Specialist / QA** | Riset dataset kesehatan inklusif, validasi akurasi model AI, pengujian sistem (QA), dan penyusunan dokumentasi teknis. |
 
