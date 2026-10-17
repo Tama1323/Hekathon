@@ -45,7 +45,7 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 │   └── 05_pelayanan_publik_civic_tech.md        # Subtema 5: Civic Tech & Community Service
 │
 ├── 📁 RESEARCHTOPIC/                                # Riset benchmark hackathon nasional & global
-│   └── BENCHMARK_RISET_HACKATHON_NASIONAL_DAN_GLOBAL.md # Analisis juara GEMASTIK, Imagine Cup, TreeHacks, dll.
+│   └── benchmark_ide.md                         # Analisis juara GEMASTIK, Imagine Cup, TreeHacks, dll.
 │
 └── 📁 track_record_juara/                        # Direktori bedah rekam jejak juara 2022–2025
     ├── README.md                                # Overview dan indeks riset historis
