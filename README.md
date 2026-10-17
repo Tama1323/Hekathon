@@ -44,6 +44,9 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 │   ├── 04_healthtech_care.md                    # Subtema 4: Inclusive Health & Well-being (Fokus Utama)
 │   └── 05_pelayanan_publik_civic_tech.md        # Subtema 5: Civic Tech & Community Service
 │
+├── 📁 RESEARCHTOPIC/                                # Riset benchmark hackathon nasional & global
+│   └── BENCHMARK_RISET_HACKATHON_NASIONAL_DAN_GLOBAL.md # Analisis juara GEMASTIK, Imagine Cup, TreeHacks, dll.
+│
 └── 📁 track_record_juara/                        # Direktori bedah rekam jejak juara 2022–2025
     ├── README.md                                # Overview dan indeks riset historis
     ├── 01_logicodix_2025.md                     # Analisis juara edisi 2025 (BPC & Web Dev)
