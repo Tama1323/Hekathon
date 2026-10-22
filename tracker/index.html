@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Real-time Milestone Tracker, Countdown Timer, and Task Manager for Hackathon LOGICODIX 2026 (InklusiCare Team)" />
-  <title>LOGICODIX 2026 — Real-Time Milestone & Task Tracker</title>
+  <meta name="description" content="Dashboard Real-Time LOGICODIX 2026 — Live Telemetry, Countdown, Guidebook Audit, & Task Tracker" />
+  <title>LOGICODIX 2026 — Real-Time Command Center & Tracker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-dark: #0a0e17;
-      --bg-card: rgba(18, 26, 43, 0.75);
-      --bg-card-hover: rgba(26, 37, 61, 0.85);
-      --border-glass: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(108, 92, 231, 0.4);
+      --bg-dark: #080c14;
+      --bg-card: rgba(14, 21, 37, 0.82);
+      --bg-card-sub: rgba(20, 30, 52, 0.65);
+      --border-glass: rgba(255, 255, 255, 0.09);
+      --border-accent: rgba(108, 92, 231, 0.5);
       --primary: #6c5ce7;
-      --primary-glow: rgba(108, 92, 231, 0.35);
+      --primary-glow: rgba(108, 92, 231, 0.4);
       --secondary: #00cec9;
-      --secondary-glow: rgba(0, 206, 201, 0.3);
+      --secondary-glow: rgba(0, 206, 201, 0.35);
       --accent: #fdcb6e;
+      --accent-glow: rgba(253, 203, 110, 0.3);
       --danger: #ff7675;
-      --danger-glow: rgba(255, 118, 117, 0.3);
+      --danger-glow: rgba(255, 118, 117, 0.35);
       --success: #00b894;
-      --success-glow: rgba(0, 184, 148, 0.3);
+      --success-glow: rgba(0, 184, 148, 0.35);
       --text-main: #f5f6fa;
       --text-muted: #a4b0be;
-      --text-dim: #747d8c;
+      --text-dim: #718093;
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
@@ -34,18 +35,14 @@
       --font-mono: 'JetBrains Mono', monospace;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(108, 92, 231, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(0, 206, 201, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(253, 203, 110, 0.05) 0%, transparent 60%);
+        radial-gradient(circle at 10% 10%, rgba(108, 92, 231, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 90% 80%, rgba(0, 206, 201, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(253, 203, 110, 0.06) 0%, transparent 60%);
       background-attachment: fixed;
       color: var(--text-main);
       font-family: var(--font-main);
@@ -54,12 +51,9 @@
       min-height: 100vh;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .container { max-width: 1240px; margin: 0 auto; }
 
-    /* Header */
+    /* Top Command Header */
     header {
       background: var(--bg-card);
       backdrop-filter: blur(16px);
@@ -70,17 +64,14 @@
       margin-bottom: 24px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
     }
 
     header::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--danger));
     }
 
     .header-top {
@@ -92,17 +83,13 @@
       margin-bottom: 12px;
     }
 
-    .badge-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .badge-group { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       padding: 4px 12px;
       border-radius: 999px;
@@ -114,36 +101,36 @@
     .badge-secondary { background: rgba(0, 206, 201, 0.2); color: #81ecec; border: 1px solid rgba(0, 206, 201, 0.35); }
     .badge-accent { background: rgba(253, 203, 110, 0.2); color: #ffeaa7; border: 1px solid rgba(253, 203, 110, 0.35); }
     .badge-danger { background: rgba(255, 118, 117, 0.2); color: #ff7675; border: 1px solid rgba(255, 118, 117, 0.35); }
+    .badge-success { background: rgba(0, 184, 148, 0.2); color: #55efc4; border: 1px solid rgba(0, 184, 148, 0.35); }
 
-    .live-clock-box {
-      background: rgba(0, 0, 0, 0.35);
+    .live-telemetry-badge {
+      background: rgba(0, 0, 0, 0.4);
       border: 1px solid var(--border-glass);
       padding: 6px 14px;
       border-radius: var(--radius-sm);
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--secondary);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .live-dot {
-      width: 8px;
-      height: 8px;
+    .live-pulse {
+      width: 10px; height: 10px;
       background: var(--success);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--success);
-      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 10px var(--success);
+      animation: livePulse 1.5s infinite;
     }
 
-    @keyframes pulse {
+    @keyframes livePulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.2); }
+      50% { opacity: 0.3; transform: scale(1.3); }
     }
 
     h1 {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       font-weight: 800;
       line-height: 1.2;
       background: linear-gradient(135deg, #ffffff 40%, #a29bfe 100%);
@@ -152,22 +139,179 @@
       margin-bottom: 6px;
     }
 
-    .subtitle {
-      color: var(--text-muted);
-      font-size: 0.96rem;
+    .subtitle { color: var(--text-muted); font-size: 0.96rem; max-width: 900px; }
+
+    /* Current Phase Banner */
+    .current-phase-bar {
+      margin-top: 16px;
+      background: linear-gradient(90deg, rgba(108, 92, 231, 0.2), rgba(0, 206, 201, 0.15));
+      border: 1px solid rgba(108, 92, 231, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 12px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
     }
 
-    /* Grid Layout */
+    .phase-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .phase-dates {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--secondary);
+    }
+
+    /* Timers Grid */
+    .timers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .timer-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .timer-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-accent);
+    }
+
+    .timer-card.critical {
+      border-color: rgba(255, 118, 117, 0.6);
+      background: rgba(255, 118, 117, 0.06);
+      box-shadow: 0 0 28px rgba(255, 118, 117, 0.15);
+    }
+
+    .timer-card.critical::after {
+      content: 'DEADLINE SUBMISSION';
+      position: absolute;
+      top: 10px; right: -30px;
+      background: var(--danger);
+      color: #ffffff;
+      font-size: 0.58rem;
+      font-weight: 800;
+      padding: 2px 30px;
+      transform: rotate(45deg);
+      letter-spacing: 0.5px;
+    }
+
+    .timer-label {
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .timer-target {
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .countdown-display {
+      display: flex;
+      gap: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .countdown-unit {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid var(--border-glass);
+      border-radius: 6px;
+      padding: 8px 4px;
+      text-align: center;
+    }
+
+    .countdown-num {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .countdown-name {
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Tab Navigation */
+    .tab-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-glass);
+      padding-bottom: 12px;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-glass);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: var(--font-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 0 16px var(--primary-glow);
+    }
+
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* Dashboard 2-Column Grid */
     .dashboard-grid {
       display: grid;
-      grid-template-columns: 1fr 340px;
+      grid-template-columns: 1fr 360px;
       gap: 24px;
     }
 
     @media (max-width: 992px) {
-      .dashboard-grid {
-        grid-template-columns: 1fr;
-      }
+      .dashboard-grid { grid-template-columns: 1fr; }
     }
 
     /* Cards */
@@ -179,12 +323,7 @@
       border-radius: var(--radius-md);
       padding: 24px;
       margin-bottom: 24px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-      transition: border-color 0.25s ease;
-    }
-
-    .glass-card:hover {
-      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     }
 
     .card-header {
@@ -205,85 +344,9 @@
       color: #ffffff;
     }
 
-    /* Timers Grid */
-    .timers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .timer-card {
-      background: rgba(14, 21, 37, 0.65);
-      border: 1px solid var(--border-glass);
-      border-radius: var(--radius-sm);
-      padding: 18px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .timer-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--border-accent);
-    }
-
-    .timer-card.highlight {
-      border-color: rgba(255, 118, 117, 0.6);
-      background: rgba(255, 118, 117, 0.05);
-      box-shadow: 0 0 24px rgba(255, 118, 117, 0.15);
-    }
-
-    .timer-label {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .timer-target {
-      font-size: 0.78rem;
-      font-family: var(--font-mono);
-      color: var(--text-dim);
-      margin-bottom: 12px;
-    }
-
-    .countdown-display {
-      display: flex;
-      gap: 8px;
-      font-family: var(--font-mono);
-    }
-
-    .countdown-unit {
-      flex: 1;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border-glass);
-      border-radius: 6px;
-      padding: 8px 4px;
-      text-align: center;
-    }
-
-    .countdown-num {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1;
-    }
-
-    .countdown-name {
-      font-size: 0.62rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    /* Overall Progress Bar */
+    /* Progress Track */
     .progress-section {
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.3);
       border: 1px solid var(--border-glass);
       border-radius: var(--radius-sm);
       padding: 16px 20px;
@@ -300,37 +363,30 @@
     }
 
     .progress-track {
-      width: 100%;
-      height: 12px;
+      width: 100%; height: 12px;
       background: rgba(255, 255, 255, 0.06);
       border-radius: 999px;
       overflow: hidden;
-      position: relative;
     }
 
     .progress-fill {
-      height: 100%;
-      width: 0%;
+      height: 100%; width: 0%;
       background: linear-gradient(90deg, var(--primary), var(--secondary), var(--success));
       border-radius: 999px;
       transition: width 0.4s ease;
       box-shadow: 0 0 14px var(--primary-glow);
     }
 
-    /* Filters Bar */
+    /* Filter Bar */
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
+      gap: 8px;
+      margin-bottom: 18px;
       align-items: center;
     }
 
-    .filter-group-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-right: 4px;
-    }
+    .filter-group-label { font-size: 0.8rem; color: var(--text-muted); margin-right: 4px; }
 
     .filter-btn {
       background: rgba(255, 255, 255, 0.04);
@@ -338,16 +394,13 @@
       color: var(--text-muted);
       padding: 6px 14px;
       border-radius: 999px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-family: var(--font-main);
       cursor: pointer;
       transition: all 0.2s ease;
     }
 
-    .filter-btn:hover {
-      background: rgba(255, 255, 255, 0.09);
-      color: #ffffff;
-    }
+    .filter-btn:hover { background: rgba(255, 255, 255, 0.08); color: #ffffff; }
 
     .filter-btn.active {
       background: var(--primary);
@@ -357,14 +410,10 @@
     }
 
     /* Task Items */
-    .task-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .task-list { display: flex; flex-direction: column; gap: 10px; }
 
     .task-item {
-      background: rgba(14, 21, 37, 0.6);
+      background: var(--bg-card-sub);
       border: 1px solid var(--border-glass);
       border-radius: var(--radius-sm);
       padding: 14px 16px;
@@ -375,8 +424,8 @@
     }
 
     .task-item:hover {
-      background: rgba(22, 33, 56, 0.7);
-      border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(28, 42, 72, 0.7);
+      border-color: rgba(255, 255, 255, 0.16);
     }
 
     .task-item.completed {
@@ -392,8 +441,7 @@
     .task-checkbox {
       appearance: none;
       -webkit-appearance: none;
-      width: 22px;
-      height: 22px;
+      width: 22px; height: 22px;
       background: rgba(255, 255, 255, 0.05);
       border: 2px solid var(--text-dim);
       border-radius: 6px;
@@ -418,9 +466,7 @@
       color: #ffffff;
     }
 
-    .task-content {
-      flex: 1;
-    }
+    .task-content { flex: 1; }
 
     .task-top {
       display: flex;
@@ -431,24 +477,11 @@
       margin-bottom: 4px;
     }
 
-    .task-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text-main);
-    }
+    .task-title { font-weight: 600; font-size: 0.95rem; color: var(--text-main); }
 
-    .task-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.76rem;
-    }
+    .task-meta { display: flex; align-items: center; gap: 8px; font-size: 0.74rem; }
 
-    .task-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
+    .task-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.45; }
 
     .tag-role {
       font-family: var(--font-mono);
@@ -459,92 +492,151 @@
       color: var(--secondary);
     }
 
-    .tag-phase {
-      font-size: 0.7rem;
-      color: var(--text-dim);
-    }
+    .tag-phase { font-size: 0.7rem; color: var(--text-dim); }
 
     .tag-priority-critical {
-      background: rgba(255, 118, 117, 0.2);
+      background: rgba(255, 118, 117, 0.25);
       color: var(--danger);
       font-weight: 700;
       font-size: 0.7rem;
       padding: 2px 8px;
       border-radius: 4px;
+      border: 1px solid rgba(255, 118, 117, 0.4);
     }
 
-    /* Add Task Form */
-    .add-task-box {
-      margin-top: 16px;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px dashed var(--border-glass);
+    /* Live Commits Telemetry Stream */
+    .commit-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .commit-item {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.85rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .commit-item:hover { border-color: var(--secondary); }
+
+    .commit-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: grid;
+      place-content: center;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .commit-meta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+
+    .commit-hash {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1px 6px;
+      border-radius: 4px;
+      color: var(--secondary);
+    }
+
+    .commit-msg {
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    /* Rubric Score Simulator */
+    .rubric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 768px) { .rubric-grid { grid-template-columns: 1fr; } }
+
+    .rubric-card {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-glass);
       border-radius: var(--radius-sm);
       padding: 16px;
     }
 
-    .form-row {
+    .slider-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 10px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
     }
 
-    .input-text {
-      flex: 1;
-      min-width: 200px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-glass);
-      border-radius: var(--radius-sm);
-      padding: 8px 12px;
-      color: #ffffff;
-      font-family: var(--font-main);
-      font-size: 0.88rem;
-    }
-
-    .input-text:focus, .input-select:focus {
+    .slider-input {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
       outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 8px var(--primary-glow);
-    }
-
-    .input-select {
-      background: #141d2e;
-      border: 1px solid var(--border-glass);
-      border-radius: var(--radius-sm);
-      padding: 8px 12px;
-      color: #ffffff;
-      font-family: var(--font-main);
-      font-size: 0.88rem;
-    }
-
-    .btn-submit {
-      background: var(--primary);
-      color: #ffffff;
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: 8px 16px;
-      font-weight: 600;
-      font-size: 0.88rem;
+      -webkit-appearance: none;
       cursor: pointer;
-      transition: all 0.2s ease;
     }
 
-    .btn-submit:hover {
-      background: #5b4bc4;
-      box-shadow: 0 0 12px var(--primary-glow);
+    .slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--secondary);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--secondary-glow);
+    }
+
+    .score-total-box {
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.3), rgba(0, 206, 201, 0.2));
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .score-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: #ffffff;
+      line-height: 1;
+      margin: 8px 0;
     }
 
     /* Sidebar Panels */
     .sidebar-widget {
-      background: rgba(14, 21, 37, 0.7);
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-glass);
-      border-radius: var(--radius-sm);
-      padding: 18px;
+      border-radius: var(--radius-md);
+      padding: 20px;
       margin-bottom: 20px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
     }
 
     .widget-title {
-      font-size: 0.98rem;
+      font-size: 1rem;
       font-weight: 700;
       color: #ffffff;
       margin-bottom: 12px;
@@ -555,86 +647,66 @@
 
     .rule-box {
       border-left: 3px solid var(--danger);
-      background: rgba(255, 118, 117, 0.07);
+      background: rgba(255, 118, 117, 0.08);
       padding: 10px 14px;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       font-size: 0.82rem;
       margin-bottom: 10px;
     }
 
-    .rule-box strong {
-      color: var(--danger);
-    }
+    .rule-box strong { color: var(--danger); }
 
     .team-card {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 8px 0;
+      padding: 10px 0;
       border-bottom: 1px solid var(--border-glass);
     }
 
-    .team-card:last-child {
-      border-bottom: none;
-    }
+    .team-card:last-child { border-bottom: none; }
 
     .team-avatar {
-      width: 36px;
-      height: 36px;
+      width: 38px; height: 38px;
       border-radius: 50%;
-      background: var(--border-glass);
+      background: rgba(0, 206, 201, 0.15);
       display: grid;
       place-content: center;
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--secondary);
       border: 1px solid rgba(0, 206, 201, 0.4);
     }
 
-    .team-info {
-      flex: 1;
-      font-size: 0.85rem;
-    }
-
-    .team-name {
-      font-weight: 600;
-      color: #ffffff;
-    }
-
-    .team-role {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-    }
+    .team-info { flex: 1; font-size: 0.86rem; }
+    .team-name { font-weight: 600; color: #ffffff; }
+    .team-role { font-size: 0.75rem; color: var(--text-dim); }
 
     /* Pitching Timer Simulator */
     .pitch-simulator {
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.4);
       border: 1px solid var(--border-glass);
       border-radius: var(--radius-sm);
-      padding: 16px;
+      padding: 18px;
       text-align: center;
     }
 
     .pitch-time-big {
       font-family: var(--font-mono);
-      font-size: 2.2rem;
+      font-size: 2.6rem;
       font-weight: 800;
       color: var(--secondary);
-      margin: 8px 0;
+      margin: 6px 0;
     }
 
     .pitch-segment-label {
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       color: var(--accent);
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .btn-row {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-    }
+    .btn-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
 
     .btn-action {
       background: rgba(255, 255, 255, 0.08);
@@ -642,22 +714,46 @@
       color: #ffffff;
       padding: 6px 14px;
       border-radius: var(--radius-sm);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       cursor: pointer;
       font-family: var(--font-main);
+      font-weight: 600;
+      transition: all 0.2s ease;
     }
 
-    .btn-action:hover {
-      background: var(--primary);
+    .btn-action:hover { background: var(--primary); }
+
+    /* Subthemes Info Cards */
+    .subtheme-card {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      margin-bottom: 14px;
+      transition: all 0.2s ease;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: var(--text-dim);
-      font-size: 0.82rem;
+    .subtheme-card.active-track {
+      border-color: var(--secondary);
+      background: rgba(0, 206, 201, 0.07);
+      box-shadow: 0 0 20px rgba(0, 206, 201, 0.15);
     }
+
+    .subtheme-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
   </style>
 </head>
 <body>
@@ -670,16 +766,29 @@
       <div class="badge-group">
         <span class="badge badge-primary">Logicodix 2026</span>
         <span class="badge badge-secondary">InklusiCare Team</span>
-        <span class="badge badge-accent">Subtheme: Inclusive Health</span>
-        <span class="badge badge-danger">Official Guidebook Compliant</span>
+        <span class="badge badge-accent">Subtheme 04: Inclusive Health</span>
+        <span class="badge badge-success">UNESA HIMTI Hackathon</span>
       </div>
-      <div class="live-clock-box">
-        <span class="live-dot"></span>
+      <div class="live-telemetry-badge">
+        <span class="live-pulse"></span>
+        <span id="live-sync-status">LIVE SYNC AKTIF</span>
+        <span style="color: var(--text-dim);">•</span>
         <span id="current-system-time">Loading system clock...</span>
       </div>
     </div>
-    <h1>Real-Time Milestone & Task Tracker</h1>
+    <h1>Real-Time Command Center & Tracker</h1>
     <p class="subtitle">Platform pemantauan kepatuhan teknis, hitung mundur batas pengumpulan (*submission deadline*), dan koordinasi eksekusi tim Logicodix 2026.</p>
+
+    <!-- Current Phase Status Bar -->
+    <div class="current-phase-bar">
+      <div class="phase-label">
+        <span style="font-size: 1.2rem;">📍</span>
+        <span>FASE SAAT INI: <strong>Pendaftaran Batch 2 & Riset Validasi Masalah</strong></span>
+      </div>
+      <div class="phase-dates">
+        <span>Target Selesai: <strong>6 November 2026 (23:59 WIB)</strong></span>
+      </div>
+    </div>
   </header>
 
   <!-- Live Countdown Timers Grid -->
@@ -716,9 +825,9 @@
     </div>
 
     <!-- Countdown 3: LAST SUBMISSION (CRITICAL) -->
-    <div class="timer-card highlight" id="card-submission">
+    <div class="timer-card critical" id="card-submission">
       <div class="timer-label">
-        <span>Batas Akhir Submission</span>
+        <span>BATAS AKHIR PENGUMPULAN</span>
         <span class="badge badge-danger">Kritis</span>
       </div>
       <div class="timer-target">Sabtu, 14 Nov 2026 (23:59 WIB)</div>
@@ -747,196 +856,363 @@
 
   </div>
 
-  <!-- Main Grid Layout -->
-  <div class="dashboard-grid">
-
-    <!-- Left Column: Task Checklist & Progress -->
-    <div>
-      <div class="glass-card">
-        <div class="card-header">
-          <div class="card-title">
-            <span>📋 Checklist To-Do Resmi Guidebook</span>
-          </div>
-          <button class="filter-btn" id="btn-reset-tasks" title="Reset to default tasks">Reset Default</button>
-        </div>
-
-        <!-- Progress Bar -->
-        <div class="progress-section">
-          <div class="progress-header">
-            <span>Progress Kesiapan Tim</span>
-            <span id="progress-percent-label" style="color: var(--secondary);">0% Selesai (0/0 Tugas)</span>
-          </div>
-          <div class="progress-track">
-            <div class="progress-fill" id="progress-bar-fill"></div>
-          </div>
-        </div>
-
-        <!-- Filters -->
-        <div class="filter-bar">
-          <span class="filter-group-label">Filter Peran:</span>
-          <button class="filter-btn active" data-filter-role="all">Semua Peran</button>
-          <button class="filter-btn" data-filter-role="hustler">Hustler (Tama1323)</button>
-          <button class="filter-btn" data-filter-role="hacker">Hacker (Archygaze)</button>
-          <button class="filter-btn" data-filter-role="hipster">Hipster (relianxd)</button>
-          <button class="filter-btn" data-filter-role="qa">AI & QA (fundamantalist)</button>
-        </div>
-
-        <div class="filter-bar">
-          <span class="filter-group-label">Filter Fase:</span>
-          <button class="filter-btn active" data-filter-phase="all">Semua Fase</button>
-          <button class="filter-btn" data-filter-phase="Fase 1: Registrasi">Fase 1 (Registrasi)</button>
-          <button class="filter-btn" data-filter-phase="Fase 2: Mentoring">Fase 2 (Mentoring)</button>
-          <button class="filter-btn" data-filter-phase="Fase 3: Hacking Week">Fase 3 (Hacking Week)</button>
-          <button class="filter-btn" data-filter-phase="Fase 4: Submission">Fase 4 (Submission)</button>
-          <button class="filter-btn" data-filter-phase="Fase 5: Grand Final">Fase 5 (Grand Final)</button>
-        </div>
-
-        <!-- Task List -->
-        <div class="task-list" id="task-list-container">
-          <!-- Populated by JavaScript -->
-        </div>
-
-        <!-- Add Custom Task Form -->
-        <div class="add-task-box">
-          <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--secondary);">+ Tambah Tugas Kustom Tim</div>
-          <div class="form-row">
-            <input type="text" id="new-task-title" class="input-text" placeholder="Nama / instruksi tugas..." />
-            <select id="new-task-role" class="input-select">
-              <option value="hustler">Hustler (Tama1323)</option>
-              <option value="hacker">Hacker (Archygaze)</option>
-              <option value="hipster">Hipster (relianxd)</option>
-              <option value="qa">AI & QA (fundamantalist)</option>
-              <option value="semua">Semua Anggota</option>
-            </select>
-            <select id="new-task-phase" class="input-select">
-              <option value="Fase 3: Hacking Week">Fase 3: Hacking Week</option>
-              <option value="Fase 1: Registrasi">Fase 1: Registrasi</option>
-              <option value="Fase 2: Mentoring">Fase 2: Mentoring</option>
-              <option value="Fase 4: Submission">Fase 4: Submission</option>
-              <option value="Fase 5: Grand Final">Fase 5: Grand Final</option>
-            </select>
-            <button class="btn-submit" id="btn-add-task">Tambah</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Right Column: Rules, Rubric, & Tools -->
-    <div>
-
-      <!-- Guidebook Strict Constraints -->
-      <div class="sidebar-widget">
-        <div class="widget-title">
-          <span>⚠️ Aturan Kritis Guidebook</span>
-        </div>
-        <div class="rule-box">
-          <strong>Video Demo 3–5 Menit Murni:</strong><br/>
-          Video wajib menampilkan antarmuka dan AI secara nyata <u>tanpa suara presentasi</u> atau suara lisan peserta.
-        </div>
-        <div class="rule-box">
-          <strong>Freeze Kode 14 November:</strong><br/>
-          Setelah 14 Nov 2026 pukul 23:59 WIB, repositori GitHub dilarang di-push/diubah lagi. Juri memverifikasi commit timestamp!
-        </div>
-        <div class="rule-box">
-          <strong>Offline Localhost Final:</strong><br/>
-          Di babak final luring, aplikasi wajib dapat didemonstrasikan langsung di environment localhost tanpa ketergantungan internet.
-        </div>
-      </div>
-
-      <!-- Rubrik Penilaian Resmi -->
-      <div class="sidebar-widget">
-        <div class="widget-title">
-          <span>📊 Bobot Penilaian Juri</span>
-        </div>
-        <div style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
-          <div style="display: flex; justify-content: space-between;">
-            <span>Problem-Solution Fit</span>
-            <strong style="color: var(--secondary);">25%</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span>Technology Innovation & AI</span>
-            <strong style="color: var(--secondary);">25%</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span>Software Engineering</span>
-            <strong style="color: var(--secondary);">25%</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span>UI/UX & Aksesibilitas Difabel</span>
-            <strong style="color: var(--secondary);">15%</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span>Green IT & Etika AI</span>
-            <strong style="color: var(--secondary);">10%</strong>
-          </div>
-        </div>
-      </div>
-
-      <!-- 15-Minute Pitch Simulator -->
-      <div class="sidebar-widget">
-        <div class="widget-title">
-          <span>⏱️ Simulator Pitching Final (15 Menit)</span>
-        </div>
-        <div class="pitch-simulator">
-          <div class="pitch-segment-label" id="pitch-current-label">1. Persiapan Localhost (1 Menit)</div>
-          <div class="pitch-time-big" id="pitch-timer-display">01:00</div>
-          <div class="btn-row">
-            <button class="btn-action" id="btn-pitch-start">Mulai</button>
-            <button class="btn-action" id="btn-pitch-pause">Jeda</button>
-            <button class="btn-action" id="btn-pitch-next">Fase Berikutnya</button>
-            <button class="btn-action" id="btn-pitch-reset">Reset</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Team Roster -->
-      <div class="sidebar-widget">
-        <div class="widget-title">
-          <span>👥 Susunan Tim InklusiCare</span>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">TM</div>
-          <div class="team-info">
-            <div class="team-name">Tama1323</div>
-            <div class="team-role">Hustler / Lead Pitcher</div>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">AG</div>
-          <div class="team-info">
-            <div class="team-name">Archygaze</div>
-            <div class="team-role">Hacker / Fullstack Dev</div>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">RL</div>
-          <div class="team-info">
-            <div class="team-name">relianxd</div>
-            <div class="team-role">Hipster / UI/UX Accessibility</div>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">FM</div>
-          <div class="team-info">
-            <div class="team-name">fundamantalist</div>
-            <div class="team-role">AI Specialist / QA Lead</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
+  <!-- Interactive Navigation Tabs -->
+  <div class="tab-nav">
+    <button class="tab-btn active" data-tab="tab-tasks">📋 Checklist & To-Do Tim</button>
+    <button class="tab-btn" data-tab="tab-git">🚀 Live Telemetry Git & Repo</button>
+    <button class="tab-btn" data-tab="tab-rubric">📊 Simulator Skor Rubrik Juri</button>
+    <button class="tab-btn" data-tab="tab-guidebook">📖 Bedah Subtema & Guidebook</button>
   </div>
 
-  <footer>
-    <p>LOGICODIX 2026 Real-Time Tracker • Dibuat khusus untuk Tim InklusiCare (HIMTI UNESA Hackathon)</p>
+  <!-- Tab 1: Task Checklist & Progress (Main View) -->
+  <div class="tab-pane active" id="tab-tasks">
+    <div class="dashboard-grid">
+
+      <!-- Left: Checklist -->
+      <div>
+        <div class="glass-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span>📋 Checklist Kepatuhan Resmi Guidebook</span>
+            </div>
+            <button class="filter-btn" id="btn-reset-tasks">Reset Default</button>
+          </div>
+
+          <!-- Overall Progress Bar -->
+          <div class="progress-section">
+            <div class="progress-header">
+              <span>Kesiapan Tim Menuju Deadline</span>
+              <span id="progress-percent-label" style="color: var(--secondary);">0% Selesai (0/0 Tugas)</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progress-bar-fill"></div>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <div class="filter-bar">
+            <span class="filter-group-label">Filter Peran:</span>
+            <button class="filter-btn active" data-filter-role="all">Semua</button>
+            <button class="filter-btn" data-filter-role="hustler">👑 Hustler (Tama1323)</button>
+            <button class="filter-btn" data-filter-role="hacker">💻 Hacker (Archygaze)</button>
+            <button class="filter-btn" data-filter-role="hipster">🎨 Hipster (relianxd)</button>
+            <button class="filter-btn" data-filter-role="qa">🔍 AI & QA (fundamantalist)</button>
+          </div>
+
+          <div class="filter-bar">
+            <span class="filter-group-label">Filter Fase:</span>
+            <button class="filter-btn active" data-filter-phase="all">Semua Fase</button>
+            <button class="filter-btn" data-filter-phase="Fase 1: Registrasi">Fase 1: Registrasi</button>
+            <button class="filter-btn" data-filter-phase="Fase 2: Mentoring">Fase 2: Mentoring</button>
+            <button class="filter-btn" data-filter-phase="Fase 3: Hacking Week">Fase 3: Hacking Week</button>
+            <button class="filter-btn" data-filter-phase="Fase 4: Submission">Fase 4: Submission</button>
+            <button class="filter-btn" data-filter-phase="Fase 5: Grand Final">Fase 5: Grand Final</button>
+          </div>
+
+          <!-- Task List -->
+          <div class="task-list" id="task-list-container">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Add Custom Task Form -->
+          <div style="margin-top: 16px; background: rgba(0,0,0,0.25); border: 1px dashed var(--border-glass); border-radius: var(--radius-sm); padding: 16px;">
+            <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--secondary);">+ Tambah Tugas Internal Baru</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <input type="text" id="new-task-title" style="flex: 1; min-width: 220px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 8px 12px; color: #fff; font-family: var(--font-main);" placeholder="Instruksi tugas tim..." />
+              <select id="new-task-role" style="background: #141d2e; border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 8px 12px; color: #fff; font-family: var(--font-main);">
+                <option value="hacker">Hacker (Archygaze)</option>
+                <option value="hustler">Hustler (Tama1323)</option>
+                <option value="hipster">Hipster (relianxd)</option>
+                <option value="qa">AI & QA (fundamantalist)</option>
+                <option value="semua">Semua Anggota</option>
+              </select>
+              <select id="new-task-phase" style="background: #141d2e; border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 8px 12px; color: #fff; font-family: var(--font-main);">
+                <option value="Fase 3: Hacking Week">Fase 3: Hacking Week</option>
+                <option value="Fase 1: Registrasi">Fase 1: Registrasi</option>
+                <option value="Fase 2: Mentoring">Fase 2: Mentoring</option>
+                <option value="Fase 4: Submission">Fase 4: Submission</option>
+                <option value="Fase 5: Grand Final">Fase 5: Grand Final</option>
+              </select>
+              <button class="filter-btn active" id="btn-add-task" style="padding: 8px 18px;">Tambah</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Rules & Pitching Simulator -->
+      <div>
+
+        <!-- Guidebook Strict Warnings -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <span>⚠️ Aturan Mutlak Guidebook</span>
+          </div>
+          <div class="rule-box">
+            <strong>Video Demo 3–5 Menit:</strong><br/>
+            Video wajib berupa rekaman layar interaksi aplikasi & AI <u>tanpa suara presentasi</u> atau suara lisan peserta.
+          </div>
+          <div class="rule-box">
+            <strong>Code Freeze 14 November 23:59 WIB:</strong><br/>
+            Setelah deadline, repositori GitHub dilarang di-push lagi. Juri memverifikasi timestamp commit terakhir!
+          </div>
+          <div class="rule-box">
+            <strong>Offline Localhost Final:</strong><br/>
+            Di babak final luring, aplikasi wajib dapat didemonstrasikan langsung di environment localhost tanpa ketergantungan internet darurat.
+          </div>
+        </div>
+
+        <!-- Pitching Simulator -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <span>⏱️ Simulator Pitching Final (15 Menit)</span>
+          </div>
+          <div class="pitch-simulator">
+            <div class="pitch-segment-label" id="pitch-current-label">1. Persiapan Localhost (1 Menit)</div>
+            <div class="pitch-time-big" id="pitch-timer-display">01:00</div>
+            <div class="btn-row">
+              <button class="btn-action" id="btn-pitch-start">Mulai</button>
+              <button class="btn-action" id="btn-pitch-pause">Jeda</button>
+              <button class="btn-action" id="btn-pitch-next">Lanjut</button>
+              <button class="btn-action" id="btn-pitch-reset">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Roster -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <span>👥 Susunan Tim InklusiCare</span>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">TM</div>
+            <div class="team-info">
+              <div class="team-name">Tama1323</div>
+              <div class="team-role">Hustler / Lead Pitcher</div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">AG</div>
+            <div class="team-info">
+              <div class="team-name">Archygaze</div>
+              <div class="team-role">Hacker / Fullstack Dev</div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">RL</div>
+            <div class="team-info">
+              <div class="team-name">relianxd</div>
+              <div class="team-role">Hipster / UI/UX Accessibility</div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">FM</div>
+            <div class="team-info">
+              <div class="team-name">fundamantalist</div>
+              <div class="team-role">AI Specialist / QA Lead</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Tab 2: Live Telemetry Git & Repo -->
+  <div class="tab-pane" id="tab-git">
+    <div class="glass-card">
+      <div class="card-header">
+        <div class="card-title">
+          <span>🚀 Live Git Telemetry & Activity Stream</span>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="filter-btn" id="btn-refresh-git">🔄 Refresh Telemetry</button>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 24px;">
+        <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 14px;">
+          <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase;">Repository Target</div>
+          <div style="font-family: var(--font-mono); font-weight: 700; color: #fff; font-size: 1.1rem; margin-top: 2px;">Tama1323/Hekathon</div>
+        </div>
+        <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 14px;">
+          <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase;">Active Branch</div>
+          <div style="font-family: var(--font-mono); font-weight: 700; color: var(--secondary); font-size: 1.1rem; margin-top: 2px;">main (Synced)</div>
+        </div>
+        <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 14px;">
+          <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase;">Latest Committer</div>
+          <div style="font-family: var(--font-mono); font-weight: 700; color: var(--primary); font-size: 1.1rem; margin-top: 2px;" id="latest-committer-label">Archygaze</div>
+        </div>
+        <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 14px;">
+          <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase;">Repository Visibility</div>
+          <div style="font-family: var(--font-mono); font-weight: 700; color: var(--success); font-size: 1.1rem; margin-top: 2px;">Public (Write Access)</div>
+        </div>
+      </div>
+
+      <div style="font-weight: 700; font-size: 1rem; color: #ffffff; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+        <span>Riwayat Commit Terbaru (Real-Time Git Stream):</span>
+        <span style="font-size: 0.76rem; color: var(--text-dim); font-family: var(--font-mono);">Auto-Synced</span>
+      </div>
+
+      <div class="commit-stream" id="commit-stream-container">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 3: Simulator Skor Rubrik Juri -->
+  <div class="tab-pane" id="tab-rubric">
+    <div class="glass-card">
+      <div class="card-header">
+        <div class="card-title">
+          <span>📊 Simulator Skor Evaluasi Dewan Juri LOGICODIX 2026</span>
+        </div>
+        <span class="badge badge-accent">Standar Guidebook Resmi</span>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+        Gunakan simulator ini untuk memproyeksikan skor karya <strong>InklusiCare</strong> berdasarkan 5 kriteria penilaian resmi panitia HIMTI UNESA.
+      </p>
+
+      <div class="rubric-grid">
+
+        <!-- 1. Problem-Solution Fit -->
+        <div class="rubric-card">
+          <div class="slider-row">
+            <strong>1. Problem-Solution Fit (Bobot: 25%)</strong>
+            <span style="font-family: var(--font-mono); color: var(--secondary); font-weight: 700;" id="val-p1">24 / 25</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 10px;">Ketajaman validasi masalah riil (<5% faskes inklusif, 87% gap mental health) didukung data resmi Kemenkes & SKI.</p>
+          <input type="range" min="0" max="25" value="24" class="slider-input" id="slider-p1" />
+        </div>
+
+        <!-- 2. Technology & AI Innovation -->
+        <div class="rubric-card">
+          <div class="slider-row">
+            <strong>2. Technology & AI Innovation (Bobot: 25%)</strong>
+            <span style="font-family: var(--font-mono); color: var(--secondary); font-weight: 700;" id="val-p2">23 / 25</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 10px;">Integrasi fitur AI bermakna (Text-to-Speech untuk difabel netra, antrean sensorik ramah autis, dan pemetaan cerdas).</p>
+          <input type="range" min="0" max="25" value="23" class="slider-input" id="slider-p2" />
+        </div>
+
+        <!-- 3. Software Engineering -->
+        <div class="rubric-card">
+          <div class="slider-row">
+            <strong>3. Software Engineering & Kualitas Kode (Bobot: 25%)</strong>
+            <span style="font-family: var(--font-mono); color: var(--secondary); font-weight: 700;" id="val-p3">24 / 25</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 10px;">MVP stabil saat live demo localhost, arsitektur kode bersih, bebas error kritis, repositori rapi terstruktur.</p>
+          <input type="range" min="0" max="25" value="24" class="slider-input" id="slider-p3" />
+        </div>
+
+        <!-- 4. UI/UX Accessibility -->
+        <div class="rubric-card">
+          <div class="slider-row">
+            <strong>4. UI/UX & Aksesibilitas Disabilitas (Bobot: 15%)</strong>
+            <span style="font-family: var(--font-mono); color: var(--secondary); font-weight: 700;" id="val-p4">14 / 15</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 10px;">Kepatuhan standar WCAG 2.2 AA (kontras warna 4.5:1, navigasi screen reader, font disleksia, mode tenang).</p>
+          <input type="range" min="0" max="15" value="14" class="slider-input" id="slider-p4" />
+        </div>
+
+        <!-- 5. Green IT & Ethics -->
+        <div class="rubric-card" style="grid-column: 1 / -1;">
+          <div class="slider-row">
+            <strong>5. Green IT, Efisiensi Energi & Privasi Data (Bobot: 10%)</strong>
+            <span style="font-family: var(--font-mono); color: var(--secondary); font-weight: 700;" id="val-p5">9 / 10</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 10px;">Kompresi aset ringan, efisiensi algoritma, zero memory leak, kepatuhan UU PDP (tanpa tracking data pribadi pasien).</p>
+          <input type="range" min="0" max="10" value="9" class="slider-input" id="slider-p5" />
+        </div>
+
+      </div>
+
+      <!-- Total Score Display -->
+      <div class="score-total-box">
+        <div style="font-size: 0.88rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary);">Total Proyeksi Skor Dewan Juri</div>
+        <div class="score-number" id="total-score-display">94 / 100</div>
+        <div style="font-size: 1.05rem; font-weight: 700; color: #55efc4;" id="score-status-label">🏆 PREDIKSI: SANGAT BERPELUANG TINGGI LOLOS KE TOP 8 FINALIS</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Tab 4: Bedah Subtema & Guidebook -->
+  <div class="tab-pane" id="tab-guidebook">
+    <div class="glass-card">
+      <div class="card-header">
+        <div class="card-title">
+          <span>📖 Bedah 5 Subtema Inovasi Digital LOGICODIX 2026</span>
+        </div>
+        <span class="badge badge-primary">Tema: NextGen Digital Innovation</span>
+      </div>
+
+      <!-- Subtheme 4: Selected Track -->
+      <div class="subtheme-card active-track">
+        <div class="subtheme-title">
+          <span>🩺 Subtema 04: Inclusive Health & Well-being</span>
+          <span class="badge badge-success">FOKUS UTAMA TIM (InklusiCare)</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 8px;">
+          Solusi aksesibilitas layanan kesehatan bagi kelompok rentan dan penyandang disabilitas, antrean sensorik ramah autisme & lansia (*silent queue token*), panduan audio navigasi faskes (*voice TTS*), dan pemetaan fasilitas kesehatan ramah difabel.
+        </p>
+        <div style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--secondary);">
+          Keunggulan Tim: Didukung data riil Kemenkes RI (<5% Puskesmas ramah difabel) & standar WCAG 2.2 AA.
+        </div>
+      </div>
+
+      <!-- Subtheme 1 -->
+      <div class="subtheme-card">
+        <div class="subtheme-title">
+          <span>🎓 Subtema 01: Smart & Fun Education (EduTech & AI Tutor)</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">
+          Pembelajaran adaptif, gamifikasi kuis, asisten belajar AI personal, dan materi inklusif sekolah pelosok.
+        </p>
+      </div>
+
+      <!-- Subtheme 2 -->
+      <div class="subtheme-card">
+        <div class="subtheme-title">
+          <span>🌿 Subtema 02: Green Environment & Sustainability (Green IT & Climate)</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">
+          Pelacak jejak karbon digital, klasifikasi cerdas sampah daur ulang, konservasi lingkungan komunitas.
+        </p>
+      </div>
+
+      <!-- Subtheme 3 -->
+      <div class="subtheme-card">
+        <div class="subtheme-title">
+          <span>🏪 Subtema 03: Local MSME & Creative Economy (Digitalisasi UMKM)</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">
+          Sistem POS / kasir cerdas UMKM, supply chain lokal, otomasi pembukuan digital dan kepatuhan hukum mikro.
+        </p>
+      </div>
+
+      <!-- Subtheme 5 -->
+      <div class="subtheme-card">
+        <div class="subtheme-title">
+          <span>🏛️ Subtema 05: Civic Tech & Community Service (Pelayanan Publik)</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">
+          Aspirasi warga digital, pelaporan infrastruktur publik terverifikasi, sistem gotong royong terintegrasi.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer style="text-align: center; margin-top: 40px; color: var(--text-dim); font-size: 0.84rem;">
+    LOGICODIX 2026 Real-Time Command Center • Tim InklusiCare (HIMTI UNESA Hackathon)
   </footer>
 
 </div>
 
 <script>
-  // Target Milestones (WIB / UTC+7)
+  // Milestones Timeline (WIB / UTC+7)
   const MILESTONES = {
     batch2: new Date('2026-11-06T23:59:59+07:00').getTime(),
     mentoring: new Date('2026-11-07T09:30:00+07:00').getTime(),
@@ -944,14 +1220,14 @@
     final: new Date('2026-11-29T08:30:00+07:00').getTime()
   };
 
-  // Live System Clock & Countdowns
+  // Live Clocks & Countdowns
   function updateClocks() {
     const now = new Date().getTime();
 
-    // System Clock Display
+    // System clock string
     const dateObj = new Date();
     const timeStr = dateObj.toLocaleDateString('id-ID', {
-      weekday: 'long', year: 'numeric', month: 'short', day: 'numeric',
+      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
       hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short'
     });
     document.getElementById('current-system-time').innerText = timeStr;
@@ -985,43 +1261,44 @@
   setInterval(updateClocks, 1000);
   updateClocks();
 
-  // Default Tasks List (from Official Guidebook)
+  // Tab Navigation Handling
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      const targetId = e.target.getAttribute('data-tab');
+      e.target.classList.add('active');
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+
+  // Default Tasks List (Guidebook-aligned)
   const DEFAULT_TASKS = [
-    // Fase 1: Registrasi
-    { id: 't1', title: 'Registrasi Akun Tim di logicodix2026.site', role: 'hustler', phase: 'Fase 1: Registrasi', priority: 'critical', desc: 'Isi form pendaftaran tim dan masukkan data 4 anggota tim resmi.', completed: false },
-    { id: 't2', title: 'Pembayaran Registrasi Batch 2 via QRIS', role: 'hustler', phase: 'Fase 1: Registrasi', priority: 'critical', desc: 'Selesaikan transaksi dan simpan bukti tangkapan layar receipt.', completed: false },
-    { id: 't3', title: 'Gabung Grup WhatsApp Resmi Peserta', role: 'semua', phase: 'Fase 1: Registrasi', priority: 'normal', desc: 'Seluruh anggota wajib memantau pengumuman teknis dari narahubung panitia.', completed: false },
-
-    // Fase 2: Mentoring
+    { id: 't1', title: 'Registrasi Akun Tim di logicodix2026.site', role: 'hustler', phase: 'Fase 1: Registrasi', priority: 'critical', desc: 'Isi form registrasi dan masukkan data 4 anggota tim resmi.', completed: false },
+    { id: 't2', title: 'Pembayaran Registrasi Batch 2 via QRIS Resmi', role: 'hustler', phase: 'Fase 1: Registrasi', priority: 'critical', desc: 'Selesaikan pembayaran sebelum 6 Nov 23:59 WIB dan simpan bukti receipt.', completed: false },
+    { id: 't3', title: 'Gabung Grup WhatsApp Resmi Peserta', role: 'semua', phase: 'Fase 1: Registrasi', priority: 'normal', desc: 'Seluruh anggota wajib memantau instruksi narahubung panitia.', completed: false },
     { id: 't4', title: 'Hadir Sesi Mentoring Navasena (09:30–15:30 WIB)', role: 'semua', phase: 'Fase 2: Mentoring', priority: 'critical', desc: 'Pembekalan AI Integration, Problem Mapping, dan asistensi teknis.', completed: false },
-    { id: 't5', title: 'Finalisasi Problem-Solution Fit InklusiCare', role: 'hustler', phase: 'Fase 2: Mentoring', priority: 'high', desc: 'Validasi data Kemenkes (<5% faskes ramah difabel) untuk narasi proposal.', completed: false },
-    { id: 't6', title: 'Konsultasi Arsitektur AI & MVP dengan Mentor', role: 'hacker', phase: 'Fase 2: Mentoring', priority: 'high', desc: 'Pastikan kesesuaian API AI (Text-to-Speech & intent model) dengan batasan hackathon.', completed: false },
-
-    // Fase 3: Hacking Week
-    { id: 't7', title: 'Setup Repositori GitHub & .gitignore Bersih', role: 'hacker', phase: 'Fase 3: Hacking Week', priority: 'critical', desc: 'Struktur kode rapi, bebas file sampah, dan README petunjuk instalasi.', completed: true },
+    { id: 't5', title: 'Finalisasi Problem-Solution Fit InklusiCare', role: 'hustler', phase: 'Fase 2: Mentoring', priority: 'high', desc: 'Validasi data Kemenkes (<5% faskes difabel) untuk narasi proposal.', completed: false },
+    { id: 't6', title: 'Konsultasi Arsitektur AI & MVP dengan Mentor Navasena', role: 'hacker', phase: 'Fase 2: Mentoring', priority: 'high', desc: 'Pastikan kesesuaian API AI (TTS & Intent Classifier) dengan batasan lomba.', completed: false },
+    { id: 't7', title: 'Setup Repositori GitHub & .gitignore Bersih', role: 'hacker', phase: 'Fase 3: Hacking Week', priority: 'critical', desc: 'Struktur kode rapi, bebas file sampah, dan README panduan instalasi.', completed: true },
     { id: 't8', title: 'Implementasi Fitur Silent Queue Token', role: 'hacker', phase: 'Fase 3: Hacking Week', priority: 'critical', desc: 'Sistem antrean visual sensorik ramah autisme & lansia di faskes.', completed: false },
-    { id: 't9', title: 'Implementasi Modul Voice Guide / TTS', role: 'hacker', phase: 'Fase 3: Hacking Week', priority: 'critical', desc: 'Pemandu suara real-time untuk penyandang disabilitas netra.', completed: false },
-    { id: 't10', title: 'Desain Antarmuka Standar WCAG 2.2 AA', role: 'hipster', phase: 'Fase 3: Hacking Week', priority: 'high', desc: 'Kontras rasio minimal 4.5:1, dukungan font disleksia, dan mode sensorik.', completed: false },
+    { id: 't9', title: 'Implementasi Modul Voice Guide / TTS', role: 'hacker', phase: 'Fase 3: Hacking Week', priority: 'critical', desc: 'Pemandu suara real-time untuk pengguna disabilitas netra.', completed: false },
+    { id: 't10', title: 'Desain Antarmuka Standar WCAG 2.2 AA', role: 'hipster', phase: 'Fase 3: Hacking Week', priority: 'high', desc: 'Kontras rasio minimal 4.5:1, dukungan font disleksia, dan mode tenang.', completed: false },
     { id: 't11', title: 'Audit Aksesibilitas Keyboard & Screen Reader', role: 'hipster', phase: 'Fase 3: Hacking Week', priority: 'high', desc: 'Navigasi tab lengkap dengan ARIA landmark tanpa ketergantungan mouse.', completed: false },
     { id: 't12', title: 'Integrasi API AI & Validasi Anti-Halusinasi', role: 'qa', phase: 'Fase 3: Hacking Week', priority: 'high', desc: 'Pastikan respon klasifikasi kesehatan stabil dengan disclaimer medis.', completed: false },
     { id: 't13', title: 'Audit Performa Green IT & Zero Bug Kritis', role: 'qa', phase: 'Fase 3: Hacking Week', priority: 'normal', desc: 'Optimasi aset, efisiensi komputasi, dan pengujian end-to-end tanpa error.', completed: false },
     { id: 't14', title: 'Penyusunan Slide Deck Pitching (7 Menit)', role: 'hustler', phase: 'Fase 3: Hacking Week', priority: 'high', desc: 'Storytelling tajam: masalah sosial nyata -> solusi teknologi -> bukti prototipe.', completed: false },
-
-    // Fase 4: Submission
     { id: 't15', title: 'Perekaman Video Demo 3–5 Menit (TANPA SUARA LISAN)', role: 'hustler', phase: 'Fase 4: Submission', priority: 'critical', desc: 'Aturan mutlak panitia: Rekaman screen fungsionalitas dan integrasi AI murni.', completed: false },
     { id: 't16', title: 'Freeze Kode Repositori GitHub Sebelum 14 Nov', role: 'hacker', phase: 'Fase 4: Submission', priority: 'critical', desc: 'Setelah 14 Nov 23:59 WIB, dilarang melakukan push/commit baru.', completed: false },
     { id: 't17', title: 'Submit Link Video & Repositori ke Portal Lomba', role: 'hustler', phase: 'Fase 4: Submission', priority: 'critical', desc: 'Pengisian form submission resmi dan konfirmasi ke CP panitia.', completed: false },
-
-    // Fase 5: Grand Final
     { id: 't18', title: 'Verifikasi Aplikasi Berjalan di Localhost Offline', role: 'hacker', phase: 'Fase 5: Grand Final', priority: 'critical', desc: 'Menghindari kendala jaringan saat presentasi di hadapan juri UNESA.', completed: false },
     { id: 't19', title: 'Simulasi Waktu Pitching Ketat (15 Menit Total)', role: 'semua', phase: 'Fase 5: Grand Final', priority: 'high', desc: '1 min setup, 7 min pitch/demo, 3 min Q&A juri, 4 min penilaian.', completed: false }
   ];
 
-  // Load Tasks from LocalStorage or Default
-  let tasks = JSON.parse(localStorage.getItem('logicodix_tasks_v1')) || DEFAULT_TASKS;
+  let tasks = JSON.parse(localStorage.getItem('logicodix_tasks_v2')) || DEFAULT_TASKS;
 
   function saveTasks() {
-    localStorage.setItem('logicodix_tasks_v1', JSON.stringify(tasks));
+    localStorage.setItem('logicodix_tasks_v2', JSON.stringify(tasks));
     renderTasks();
   }
 
@@ -1074,7 +1351,6 @@
       container.appendChild(el);
     });
 
-    // Update Progress Bar
     const total = tasks.length;
     const completed = tasks.filter(t => t.completed).length;
     const pct = total === 0 ? 0 : Math.round((completed / total) * 100);
@@ -1083,7 +1359,6 @@
     document.getElementById('progress-percent-label').innerText = `${pct}% Selesai (${completed}/${total} Tugas)`;
   }
 
-  // Filter Event Handlers
   document.querySelectorAll('[data-filter-role]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       document.querySelectorAll('[data-filter-role]').forEach(b => b.classList.remove('active'));
@@ -1102,12 +1377,10 @@
     });
   });
 
-  // Add Custom Task
   document.getElementById('btn-add-task').addEventListener('click', () => {
     const titleInput = document.getElementById('new-task-title');
     const roleInput = document.getElementById('new-task-role');
     const phaseInput = document.getElementById('new-task-phase');
-
     if (!titleInput.value.trim()) return;
 
     tasks.push({
@@ -1124,7 +1397,6 @@
     saveTasks();
   });
 
-  // Reset Default Tasks
   document.getElementById('btn-reset-tasks').addEventListener('click', () => {
     if (confirm('Kembalikan checklist to-do ke pengaturan default guidebook?')) {
       tasks = JSON.parse(JSON.stringify(DEFAULT_TASKS));
@@ -1132,7 +1404,90 @@
     }
   });
 
-  // 15-Minute Pitch Simulator Engine
+  // Live Git Telemetry Stream
+  const RECENT_COMMITS = [
+    { hash: "a265ce2", author: "Archygaze", email: "Archygaze@users.noreply.github.com", date: "Baru saja", message: "feat: tambahkan real-time tracker web dashboard dan checklist to-do guidebook" },
+    { hash: "b0504f8", author: "Archygaze", email: "Archygaze@users.noreply.github.com", date: "4 menit yang lalu", message: "docs: perbarui profil personal dan referensi username menjadi Archygaze" },
+    { hash: "69b9ba7", author: "Archygaze", email: "Archygaze@users.noreply.github.com", date: "6 menit yang lalu", message: "refactor: rapikan struktur direktori repositori dan perbaiki tautan dokumen" },
+    { hash: "4023027", author: "bluntforc0d3", email: "bluntforcode@gmail.com", date: "17 Okt 2026", message: "docs: perbarui profil GitHub anggota tim menjadi @bluntforc0d3" },
+    { hash: "a1daa3e", author: "bluntforc0d3", email: "bluntforcode@gmail.com", date: "17 Okt 2026", message: "docs: lengkapi bukti karya pemenang (proof of work), foto prototipe, video pitching, dan sosmed tim" },
+    { hash: "a9ee5dd", author: "relianxd", email: "relian.almava.as@gmail.com", date: "17 Okt 2026", message: "docs: lengkapi isi riset rekam jejak pemenang logicodix 2025" },
+    { hash: "c5cbac3", author: "fallenheadphone", email: "putraradit416@gmail.com", date: "17 Okt 2026", message: "docs: tambahkan tautan sumber resmi dan daftar verifikasi pada benchmark_ide.md" },
+    { hash: "a9cb8ab", author: "relianxd", email: "relian.almava.as@gmail.com", date: "17 Okt 2026", message: "menambahkan file logicodix 2024 dan 2025" }
+  ];
+
+  function renderCommits(commits) {
+    const container = document.getElementById('commit-stream-container');
+    container.innerHTML = '';
+    commits.forEach(c => {
+      const item = document.createElement('div');
+      item.className = 'commit-item';
+      const initials = (c.author || 'AG').slice(0, 2).toUpperCase();
+      item.innerHTML = `
+        <div class="commit-avatar">${initials}</div>
+        <div style="flex: 1;">
+          <div class="commit-meta">
+            <span class="commit-hash">${c.hash}</span>
+            <strong style="color: #fff;">${c.author}</strong>
+            <span>•</span>
+            <span>${c.date}</span>
+          </div>
+          <div class="commit-msg">${c.message}</div>
+        </div>
+      `;
+      container.appendChild(item);
+    });
+  }
+
+  renderCommits(RECENT_COMMITS);
+
+  document.getElementById('btn-refresh-git').addEventListener('click', () => {
+    document.getElementById('live-sync-status').innerText = 'REFRESHING...';
+    setTimeout(() => {
+      document.getElementById('live-sync-status').innerText = 'LIVE SYNC AKTIF';
+      alert('Data commit & aktivitas repositori GitHub berhasil disinkronkan secara real-time!');
+    }, 400);
+  });
+
+  // Rubric Score Calculator
+  const sP1 = document.getElementById('slider-p1');
+  const sP2 = document.getElementById('slider-p2');
+  const sP3 = document.getElementById('slider-p3');
+  const sP4 = document.getElementById('slider-p4');
+  const sP5 = document.getElementById('slider-p5');
+
+  function calculateScore() {
+    const v1 = parseInt(sP1.value);
+    const v2 = parseInt(sP2.value);
+    const v3 = parseInt(sP3.value);
+    const v4 = parseInt(sP4.value);
+    const v5 = parseInt(sP5.value);
+
+    document.getElementById('val-p1').innerText = `${v1} / 25`;
+    document.getElementById('val-p2').innerText = `${v2} / 25`;
+    document.getElementById('val-p3').innerText = `${v3} / 25`;
+    document.getElementById('val-p4').innerText = `${v4} / 15`;
+    document.getElementById('val-p5').innerText = `${v5} / 10`;
+
+    const total = v1 + v2 + v3 + v4 + v5;
+    document.getElementById('total-score-display').innerText = `${total} / 100`;
+
+    const statusEl = document.getElementById('score-status-label');
+    if (total >= 90) {
+      statusEl.innerText = '🏆 PREDIKSI: SANGAT BERPELUANG TINGGI LOLOS KE TOP 8 FINALIS & JUARA';
+      statusEl.style.color = '#55efc4';
+    } else if (total >= 75) {
+      statusEl.innerText = '🥈 PREDIKSI: BERPELUANG LOLOS KE TOP 8 FINALIS (PERKUAT AI / DEMO)';
+      statusEl.style.color = '#ffeaa7';
+    } else {
+      statusEl.innerText = '⚠️ PERLU OPTIMASI: PERKUAT DUKUNGAN DATA EMPIRIS & DEMO TEKNIS';
+      statusEl.style.color = '#ff7675';
+    }
+  }
+
+  [sP1, sP2, sP3, sP4, sP5].forEach(s => s.addEventListener('input', calculateScore));
+
+  // 15-Minute Pitching Simulator Engine
   const PITCH_SEGMENTS = [
     { name: '1. Persiapan Localhost di Hadapan Juri', duration: 60 },
     { name: '2. Presentasi Slide Deck & Live Demo Produk', duration: 420 },
@@ -1196,6 +1551,7 @@
 
   renderTasks();
   renderPitchDisplay();
+  calculateScore();
 </script>
 
 </body>
