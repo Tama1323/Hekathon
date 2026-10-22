@@ -28,7 +28,7 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 <!-- TIMELINE_TRACKER:START -->
 ## ⏱️ Real-Time Timeline & Interactive Task Tracker
 
-![Competition Progress](assets/timeline_progress.svg?v=1792654004)
+![Competition Progress](assets/timeline_progress.svg?v=1792700525)
 
 *Buka Dashboard Web Interaktif di [`tracker/index.html`](tracker/index.html) untuk melihat hitung mundur live detik-demi-detik dan simulator timer pitching.*
 
