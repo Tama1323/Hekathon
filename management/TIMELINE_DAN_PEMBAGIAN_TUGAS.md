@@ -9,7 +9,7 @@ Dokumen ini memuat pembagian peran, roadmap pengembangan MVP, dan target penyusu
 | Anggota | Peran (*Role*) | Tanggung Jawab Utama |
 | :--- | :--- | :--- |
 | **Tama1323** | **Hustler / Project Lead (Admin)** | - Perumusan problem-solution fit & validasi data krisis kesehatan inklusif.<br>- Penyusunan proposal, slide pitching, dan narasi presentasi lomba.<br>- Koordinasi repo, submission, dan kepatuhan terhadap guidebook. |
-| **fal / fallenheadphone** | **Hacker / Fullstack Developer** | - Arsitektur sistem & integrasi backend/API MVP.<br>- Implementasi fitur utama (antrean ramah sensorik / silent queue, text-to-speech, peta faskes ramah difabel).<br>- Pengujian kinerja, deployment live demo / hosting. |
+| **Archygaze** | **Hacker / Fullstack Developer** | - Arsitektur sistem & integrasi backend/API MVP.<br>- Implementasi fitur utama (antrean ramah sensorik / silent queue, text-to-speech, peta faskes ramah difabel).<br>- Pengujian kinerja, deployment live demo / hosting. |
 | **relianxd** | **Hipster / UI/UX & Accessibility Specialist** | - Desain antarmuka inklusif berbasis WCAG 2.2 AA (kontras tinggi, font disleksia).<br>- Prototyping interaktif (Figma) & desain aset visual.<br>- Uji kemudahan alur pengguna (*human-centered design*) untuk penyandang disabilitas & lansia. |
 | **fundamantalist** | **AI & Data Specialist / QA** | - Riset dataset kesehatan inklusif & validasi model AI.<br>- Pengujian fungsionalitas sistem (Quality Assurance / QA).<br>- Pengujian kesiapan live demo serta penyusunan dokumentasi teknis. |
 

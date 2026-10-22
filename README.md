@@ -28,31 +28,38 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 ## 📂 Peta & Struktur Repositori
 
 ```text
-├── 📄 README.md                                  # Dokumentasi utama repositori
-├── 📄 TIMELINE_LOGICODIX_2026.md                 # Jadwal resmi & alokasi waktu kompetisi dari guidebook
-├── 📄 TIMELINE_DAN_PEMBAGIAN_TUGAS.md            # Roadmap pengerjaan, Gantt chart, & peran tim
-├── 📄 ANALISIS_MASALAH_KESEHATAN_INKLUSIF.md     # Riset data validasi resmi (Kemenkes, SKI, Ombudsman)
-├── 📄 hasil_scraping_logicodix_2026.md           # Ekstraksi informasi kompetisi & media sosial
-├── 📄 hasil_scraping_logicodix_site.md           # Data halaman web resmi penyelenggara
-├── 📕 LOGICODIX-2026-Guidebook.pdf               # Buku panduan resmi lomba dari panitia
+├── 📄 .gitignore                                     # Konfigurasi file pengabaian Git (Node, Python, OS, IDE)
+├── 📄 README.md                                      # Dokumentasi utama & indeks repositori
 │
-├── 📁 ide/                                       # Direktori perumusan ide & subtema lomba
-│   ├── 00_RINGKASAN_DAN_FRAMEWORK.md            # Matriks komparasi & framework penilaian
-│   ├── 01_edutech_ai_tutor.md                   # Subtema 1: Smart & Fun Education
-│   ├── 02_green_it_climate.md                   # Subtema 2: Green Environment & Sustainability
-│   ├── 03_digitalisasi_bisnis_umkm.md           # Subtema 3: Local MSME & Creative Economy
-│   ├── 04_healthtech_care.md                    # Subtema 4: Inclusive Health & Well-being (Fokus Utama)
-│   └── 05_pelayanan_publik_civic_tech.md        # Subtema 5: Civic Tech & Community Service
+├── 📁 docs/                                          # Dokumen & informasi resmi penyelenggara
+│   ├── 📕 LOGICODIX-2026-Guidebook.pdf               # Buku panduan resmi lomba dari panitia
+│   ├── 📄 hasil_scraping_logicodix_site.md           # Ekstraksi halaman web resmi kompetisi
+│   └── 📄 hasil_scraping_logicodix_2026.md           # Informasi rilis & publikasi media sosial
 │
-├── 📁 RESEARCHTOPIC/                                # Riset benchmark hackathon nasional & global
-│   └── benchmark_ide.md                         # Analisis juara GEMASTIK, Imagine Cup, TreeHacks, dll.
+├── 📁 management/                                    # Manajemen waktu, jadwal, & eksekusi tim
+│   ├── 📄 TIMELINE_LOGICODIX_2026.md                 # Jadwal resmi & alokasi waktu kompetisi dari guidebook
+│   └── 📄 TIMELINE_DAN_PEMBAGIAN_TUGAS.md            # Roadmap pengerjaan, Gantt chart, & peran anggota tim
 │
-└── 📁 track_record_juara/                        # Direktori bedah rekam jejak juara 2022–2025
-    ├── README.md                                # Overview dan indeks riset historis
-    ├── 01_logicodix_2025.md                     # Analisis juara edisi 2025 (BPC & Web Dev)
-    ├── 02_logicodix_2024.md                     # Analisis edisi 2024 (Programming & Logic)
-    ├── 03_pre_logicodix_2023.md                 # Analisis juara UI/UX & inovasi digital (X-Project)
-    └── 04_analisis_pola_kemenangan_hackathon_2026.md # Formula kemenangan & strategi penilaian
+├── 📁 research/                                      # Data validasi, benchmark juara, & rekam jejak
+│   ├── 📄 ANALISIS_MASALAH_KESEHATAN_INKLUSIF.md     # Riset data validasi resmi (Kemenkes, SKI, Ombudsman)
+│   ├── 📄 benchmark_ide.md                           # Analisis juara GEMASTIK, Imagine Cup, TreeHacks, dll.
+│   └── 📁 track_record_juara/                        # Direktori bedah rekam jejak juara 2022–2025
+│       ├── README.md                                 # Overview dan indeks riset historis
+│       ├── 01_logicodix_2025.md                      # Analisis juara edisi 2025 (BPC & Web Dev)
+│       ├── 02_logicodix_2024.md                      # Analisis edisi 2024 (Programming & Logic)
+│       ├── 03_pre_logicodix_2023.md                  # Analisis juara UI/UX & inovasi digital (X-Project)
+│       └── 04_analisis_pola_kemenangan_hackathon_2026.md # Formula kemenangan & strategi penilaian
+│
+├── 📁 ideasi/                                        # Direktori perumusan ide & subtema lomba
+│   ├── 00_RINGKASAN_DAN_FRAMEWORK.md                 # Matriks komparasi & framework penilaian
+│   ├── 01_edutech_ai_tutor.md                        # Subtema 1: Smart & Fun Education
+│   ├── 02_green_it_climate.md                        # Subtema 2: Green Environment & Sustainability
+│   ├── 03_digitalisasi_bisnis_umkm.md                # Subtema 3: Local MSME & Creative Economy
+│   ├── 04_healthtech_care.md                         # Subtema 4: Inclusive Health & Well-being (Fokus Utama)
+│   └── 05_pelayanan_publik_civic_tech.md             # Subtema 5: Civic Tech & Community Service
+│
+└── 📁 profile/                                       # Profil personal anggota tim
+    └── 📄 GITHUB_PROFILE_README.md                   # Personal profile README bluntforc0d3
 ```
 
 ---
@@ -62,7 +69,7 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 | Anggota | GitHub Profile | Peran (*Role*) | Fokus Tanggung Jawab |
 | :--- | :--- | :---: | :--- |
 | **Tama1323** | [@Tama1323](https://github.com/Tama1323) | **Hustler (Lead)** | Validasi masalah sosial, perumusan narasi pitching, proposal, dan manajemen submission. |
-| **blunt** | [@bluntforc0d3](https://github.com/bluntforc0d3) | **Hacker (Dev)** | Arsitektur teknis MVP, integrasi model AI/API, backend flow, dan pengujian performa sistem. |
+| **Archygaze** | [@Archygaze](https://github.com/Archygaze) | **Hacker (Dev)** | Arsitektur teknis MVP, integrasi model AI/API, backend flow, dan pengujian performa sistem. |
 | **relianxd** | [@relianxd](https://github.com/relianxd) | **Hipster (UI/UX)** | Desain inklusif standar WCAG 2.2 AA (kontras tinggi, ramah disleksia), prototyping, dan alur human-centered. |
 | **fundamantalist** | [@fundamantalist](https://github.com/fundamantalist) | **AI & Data Specialist / QA** | Riset dataset kesehatan inklusif, validasi akurasi model AI, pengujian sistem (QA), dan penyusunan dokumentasi teknis. |
 
@@ -79,7 +86,7 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 | **Sabtu, 21 Nov 2026** | Pengumuman Top 8 Finalis | Penilaian kurasi juri. |
 | **Minggu, 29 Nov 2026** | **Grand Final & Seminar** | Live Pitching (15 menit per tim) & Demo di hadapan juri. |
 
-*Detail lengkap timeline dan alokasi menit pitching tersedia di dokumen [TIMELINE_LOGICODIX_2026.md](TIMELINE_LOGICODIX_2026.md).*
+*Detail lengkap timeline dan alokasi menit pitching tersedia di dokumen [management/TIMELINE_LOGICODIX_2026.md](management/TIMELINE_LOGICODIX_2026.md).*
 
 ---
 

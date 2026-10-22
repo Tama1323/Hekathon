@@ -12,12 +12,12 @@ Dokumen ini adalah ringkasan induk dari kumpulan referensi ide permasalahan dan 
 
 Silakan buka dokumen spesifik di bawah untuk melihat rincian permasalahan lapangan, ide produk, target pengguna, dan fitur pembedanya:
 
-1. 🎓 [01. EduTech & AI Tutor (Smart & Fun Education)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/hekathon/ide/01_edutech_ai_tutor.md)
-2. 🌿 [02. Green IT & Climate (Green Environment & Sustainability)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/hekathon/ide/02_green_it_climate.md)
-3. 🏪 [03. Digitalisasi Bisnis (Local MSME & Creative Economy)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/hekathon/ide/03_digitalisasi_bisnis_umkm.md)
-4. 🩺 [04. HealthTech & Care (Inclusive Health & Well-being)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/hekathon/ide/04_healthtech_care.md)
-5. 🏛️ [05. Pelayanan Publik (Civic Tech & Community Service)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/hekathon/ide/05_pelayanan_publik_civic_tech.md)
-6. 📊 [Dokumen Analisis Masalah Kesehatan Inklusif (Data Riset Faskes 2026)](file:///c:/Users/ASUS%20TUF%20GAMING/OneDrive/Dokumen/Lomba/hekathon/ANALISIS_MASALAH_KESEHATAN_INKLUSIF.md)
+1. 🎓 [01. EduTech & AI Tutor (Smart & Fun Education)](01_edutech_ai_tutor.md)
+2. 🌿 [02. Green IT & Climate (Green Environment & Sustainability)](02_green_it_climate.md)
+3. 🏪 [03. Digitalisasi Bisnis (Local MSME & Creative Economy)](03_digitalisasi_bisnis_umkm.md)
+4. 🩺 [04. HealthTech & Care (Inclusive Health & Well-being)](04_healthtech_care.md)
+5. 🏛️ [05. Pelayanan Publik (Civic Tech & Community Service)](05_pelayanan_publik_civic_tech.md)
+6. 📊 [Dokumen Analisis Masalah Kesehatan Inklusif (Data Riset Faskes 2026)](../research/ANALISIS_MASALAH_KESEHATAN_INKLUSIF.md)
 
 ---
 
