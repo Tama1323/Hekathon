@@ -36,7 +36,11 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 │   ├── 📄 hasil_scraping_logicodix_site.md           # Ekstraksi halaman web resmi kompetisi
 │   └── 📄 hasil_scraping_logicodix_2026.md           # Informasi rilis & publikasi media sosial
 │
+├── 📁 tracker/                                       # Dashboard web interaktif real-time
+│   └── 🌐 index.html                                 # Live countdown timers, checklist progress, & pitching simulator
+│
 ├── 📁 management/                                    # Manajemen waktu, jadwal, & eksekusi tim
+│   ├── 📋 TRACKER_DAN_TODO.md                        # Lembar kerja to-do & checklist kepatuhan guidebook
 │   ├── 📄 TIMELINE_LOGICODIX_2026.md                 # Jadwal resmi & alokasi waktu kompetisi dari guidebook
 │   └── 📄 TIMELINE_DAN_PEMBAGIAN_TUGAS.md            # Roadmap pengerjaan, Gantt chart, & peran anggota tim
 │
@@ -86,7 +90,9 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 | **Sabtu, 21 Nov 2026** | Pengumuman Top 8 Finalis | Penilaian kurasi juri. |
 | **Minggu, 29 Nov 2026** | **Grand Final & Seminar** | Live Pitching (15 menit per tim) & Demo di hadapan juri. |
 
-*Detail lengkap timeline dan alokasi menit pitching tersedia di dokumen [management/TIMELINE_LOGICODIX_2026.md](management/TIMELINE_LOGICODIX_2026.md).*
+* ⏱️ **Real-Time Web Dashboard:** Buka [`tracker/index.html`](tracker/index.html) di browser untuk melihat hitung mundur live, checklist to-do interaktif, dan simulator timer pitching 15 menit.
+* 📋 **Worksheet Markdown To-Do:** Lembar kerja checklist to-do lengkap tersedia di [management/TRACKER_DAN_TODO.md](management/TRACKER_DAN_TODO.md).
+* 📅 **Jadwal & Detail Pitching:** Rincian alokasi menit pitching tersedia di dokumen [management/TIMELINE_LOGICODIX_2026.md](management/TIMELINE_LOGICODIX_2026.md).
 
 ---
 

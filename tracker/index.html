@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Real-time Milestone Tracker, Countdown Timer, and Task Manager for Hackathon LOGICODIX 2026 (InklusiCare Team)" />
+  <title>LOGICODIX 2026 — Real-Time Milestone & Task Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #0a0e17;
+      --bg-card: rgba(18, 26, 43, 0.75);
+      --bg-card-hover: rgba(26, 37, 61, 0.85);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(108, 92, 231, 0.4);
+      --primary: #6c5ce7;
+      --primary-glow: rgba(108, 92, 231, 0.35);
+      --secondary: #00cec9;
+      --secondary-glow: rgba(0, 206, 201, 0.3);
+      --accent: #fdcb6e;
+      --danger: #ff7675;
+      --danger-glow: rgba(255, 118, 117, 0.3);
+      --success: #00b894;
+      --success-glow: rgba(0, 184, 148, 0.3);
+      --text-main: #f5f6fa;
+      --text-muted: #a4b0be;
+      --text-dim: #747d8c;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --font-main: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(108, 92, 231, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(0, 206, 201, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(253, 203, 110, 0.05) 0%, transparent 60%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 24px 16px 80px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-primary { background: rgba(108, 92, 231, 0.25); color: #a29bfe; border: 1px solid rgba(108, 92, 231, 0.4); }
+    .badge-secondary { background: rgba(0, 206, 201, 0.2); color: #81ecec; border: 1px solid rgba(0, 206, 201, 0.35); }
+    .badge-accent { background: rgba(253, 203, 110, 0.2); color: #ffeaa7; border: 1px solid rgba(253, 203, 110, 0.35); }
+    .badge-danger { background: rgba(255, 118, 117, 0.2); color: #ff7675; border: 1px solid rgba(255, 118, 117, 0.35); }
+
+    .live-clock-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-glass);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--success);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff 40%, #a29bfe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    /* Grid Layout */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+    }
+
+    @media (max-width: 992px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Cards */
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+      transition: border-color 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-glass);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff;
+    }
+
+    /* Timers Grid */
+    .timers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .timer-card {
+      background: rgba(14, 21, 37, 0.65);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .timer-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-accent);
+    }
+
+    .timer-card.highlight {
+      border-color: rgba(255, 118, 117, 0.6);
+      background: rgba(255, 118, 117, 0.05);
+      box-shadow: 0 0 24px rgba(255, 118, 117, 0.15);
+    }
+
+    .timer-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .timer-target {
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .countdown-display {
+      display: flex;
+      gap: 8px;
+      font-family: var(--font-mono);
+    }
+
+    .countdown-unit {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-glass);
+      border-radius: 6px;
+      padding: 8px 4px;
+      text-align: center;
+    }
+
+    .countdown-num {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .countdown-name {
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Overall Progress Bar */
+    .progress-section {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--success));
+      border-radius: 999px;
+      transition: width 0.4s ease;
+      box-shadow: 0 0 14px var(--primary-glow);
+    }
+
+    /* Filters Bar */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .filter-group-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-glass);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-family: var(--font-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.09);
+      color: #ffffff;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    /* Task Items */
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-item {
+      background: rgba(14, 21, 37, 0.6);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .task-item:hover {
+      background: rgba(22, 33, 56, 0.7);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .task-item.completed {
+      opacity: 0.55;
+      background: rgba(10, 15, 26, 0.4);
+    }
+
+    .task-item.completed .task-title {
+      text-decoration: line-through;
+      color: var(--text-dim);
+    }
+
+    .task-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid var(--text-dim);
+      border-radius: 6px;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      margin-top: 2px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .task-checkbox:checked {
+      background: var(--success);
+      border-color: var(--success);
+      box-shadow: 0 0 10px var(--success-glow);
+    }
+
+    .task-checkbox:checked::before {
+      content: '✓';
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .task-content {
+      flex: 1;
+    }
+
+    .task-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .task-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .task-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+    }
+
+    .task-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .tag-role {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--secondary);
+    }
+
+    .tag-phase {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    .tag-priority-critical {
+      background: rgba(255, 118, 117, 0.2);
+      color: var(--danger);
+      font-weight: 700;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* Add Task Form */
+    .add-task-box {
+      margin-top: 16px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px dashed var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .input-text {
+      flex: 1;
+      min-width: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      color: #ffffff;
+      font-family: var(--font-main);
+      font-size: 0.88rem;
+    }
+
+    .input-text:focus, .input-select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 8px var(--primary-glow);
+    }
+
+    .input-select {
+      background: #141d2e;
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      color: #ffffff;
+      font-family: var(--font-main);
+      font-size: 0.88rem;
+    }
+
+    .btn-submit {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 8px 16px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background: #5b4bc4;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    /* Sidebar Panels */
+    .sidebar-widget {
+      background: rgba(14, 21, 37, 0.7);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .widget-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .rule-box {
+      border-left: 3px solid var(--danger);
+      background: rgba(255, 118, 117, 0.07);
+      padding: 10px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+
+    .rule-box strong {
+      color: var(--danger);
+    }
+
+    .team-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-glass);
+    }
+
+    .team-card:last-child {
+      border-bottom: none;
+    }
+
+    .team-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--border-glass);
+      display: grid;
+      place-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--secondary);
+      border: 1px solid rgba(0, 206, 201, 0.4);
+    }
+
+    .team-info {
+      flex: 1;
+      font-size: 0.85rem;
+    }
+
+    .team-name {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .team-role {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* Pitching Timer Simulator */
+    .pitch-simulator {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .pitch-time-big {
+      font-family: var(--font-mono);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--secondary);
+      margin: 8px 0;
+    }
+
+    .pitch-segment-label {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-glass);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-family: var(--font-main);
+    }
+
+    .btn-action:hover {
+      background: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="badge-group">
+        <span class="badge badge-primary">Logicodix 2026</span>
+        <span class="badge badge-secondary">InklusiCare Team</span>
+        <span class="badge badge-accent">Subtheme: Inclusive Health</span>
+        <span class="badge badge-danger">Official Guidebook Compliant</span>
+      </div>
+      <div class="live-clock-box">
+        <span class="live-dot"></span>
+        <span id="current-system-time">Loading system clock...</span>
+      </div>
+    </div>
+    <h1>Real-Time Milestone & Task Tracker</h1>
+    <p class="subtitle">Platform pemantauan kepatuhan teknis, hitung mundur batas pengumpulan (*submission deadline*), dan koordinasi eksekusi tim Logicodix 2026.</p>
+  </header>
+
+  <!-- Live Countdown Timers Grid -->
+  <div class="timers-grid">
+    
+    <!-- Countdown 1: Batch 2 Registration -->
+    <div class="timer-card" id="card-batch2">
+      <div class="timer-label">
+        <span>Batas Registrasi Batch 2</span>
+        <span class="badge badge-accent">Administrasi</span>
+      </div>
+      <div class="timer-target">Jumat, 6 Nov 2026 (23:59 WIB)</div>
+      <div class="countdown-display" id="timer-batch2">
+        <div class="countdown-unit"><div class="countdown-num" id="batch2-d">00</div><div class="countdown-name">Hari</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="batch2-h">00</div><div class="countdown-name">Jam</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="batch2-m">00</div><div class="countdown-name">Mnt</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="batch2-s">00</div><div class="countdown-name">Dtk</div></div>
+      </div>
+    </div>
+
+    <!-- Countdown 2: Mentoring with Navasena -->
+    <div class="timer-card" id="card-mentoring">
+      <div class="timer-label">
+        <span>Mentoring with Navasena</span>
+        <span class="badge badge-secondary">Daring</span>
+      </div>
+      <div class="timer-target">Sabtu, 7 Nov 2026 (09:30 WIB)</div>
+      <div class="countdown-display" id="timer-mentoring">
+        <div class="countdown-unit"><div class="countdown-num" id="mentoring-d">00</div><div class="countdown-name">Hari</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="mentoring-h">00</div><div class="countdown-name">Jam</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="mentoring-m">00</div><div class="countdown-name">Mnt</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="mentoring-s">00</div><div class="countdown-name">Dtk</div></div>
+      </div>
+    </div>
+
+    <!-- Countdown 3: LAST SUBMISSION (CRITICAL) -->
+    <div class="timer-card highlight" id="card-submission">
+      <div class="timer-label">
+        <span>Batas Akhir Submission</span>
+        <span class="badge badge-danger">Kritis</span>
+      </div>
+      <div class="timer-target">Sabtu, 14 Nov 2026 (23:59 WIB)</div>
+      <div class="countdown-display" id="timer-submission">
+        <div class="countdown-unit"><div class="countdown-num" id="sub-d" style="color: var(--danger);">00</div><div class="countdown-name">Hari</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="sub-h" style="color: var(--danger);">00</div><div class="countdown-name">Jam</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="sub-m" style="color: var(--danger);">00</div><div class="countdown-name">Mnt</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="sub-s" style="color: var(--danger);">00</div><div class="countdown-name">Dtk</div></div>
+      </div>
+    </div>
+
+    <!-- Countdown 4: Grand Final Offline -->
+    <div class="timer-card" id="card-final">
+      <div class="timer-label">
+        <span>Grand Final & Seminar UNESA</span>
+        <span class="badge badge-primary">Puncak</span>
+      </div>
+      <div class="timer-target">Minggu, 29 Nov 2026 (08:30 WIB)</div>
+      <div class="countdown-display" id="timer-final">
+        <div class="countdown-unit"><div class="countdown-num" id="final-d">00</div><div class="countdown-name">Hari</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="final-h">00</div><div class="countdown-name">Jam</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="final-m">00</div><div class="countdown-name">Mnt</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="final-s">00</div><div class="countdown-name">Dtk</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Main Grid Layout -->
+  <div class="dashboard-grid">
+
+    <!-- Left Column: Task Checklist & Progress -->
+    <div>
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>📋 Checklist To-Do Resmi Guidebook</span>
+          </div>
+          <button class="filter-btn" id="btn-reset-tasks" title="Reset to default tasks">Reset Default</button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-section">
+          <div class="progress-header">
+            <span>Progress Kesiapan Tim</span>
+            <span id="progress-percent-label" style="color: var(--secondary);">0% Selesai (0/0 Tugas)</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-bar">
+          <span class="filter-group-label">Filter Peran:</span>
+          <button class="filter-btn active" data-filter-role="all">Semua Peran</button>
+          <button class="filter-btn" data-filter-role="hustler">Hustler (Tama1323)</button>
+          <button class="filter-btn" data-filter-role="hacker">Hacker (Archygaze)</button>
+          <button class="filter-btn" data-filter-role="hipster">Hipster (relianxd)</button>
+          <button class="filter-btn" data-filter-role="qa">AI & QA (fundamantalist)</button>
+        </div>
+
+        <div class="filter-bar">
+          <span class="filter-group-label">Filter Fase:</span>
+          <button class="filter-btn active" data-filter-phase="all">Semua Fase</button>
+          <button class="filter-btn" data-filter-phase="Fase 1: Registrasi">Fase 1 (Registrasi)</button>
+          <button class="filter-btn" data-filter-phase="Fase 2: Mentoring">Fase 2 (Mentoring)</button>
+          <button class="filter-btn" data-filter-phase="Fase 3: Hacking Week">Fase 3 (Hacking Week)</button>
+          <button class="filter-btn" data-filter-phase="Fase 4: Submission">Fase 4 (Submission)</button>
+          <button class="filter-btn" data-filter-phase="Fase 5: Grand Final">Fase 5 (Grand Final)</button>
+        </div>
+
+        <!-- Task List -->
+        <div class="task-list" id="task-list-container">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Add Custom Task Form -->
+        <div class="add-task-box">
+          <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--secondary);">+ Tambah Tugas Kustom Tim</div>
+          <div class="form-row">
+            <input type="text" id="new-task-title" class="input-text" placeholder="Nama / instruksi tugas..." />
+            <select id="new-task-role" class="input-select">
+              <option value="hustler">Hustler (Tama1323)</option>
+              <option value="hacker">Hacker (Archygaze)</option>
+              <option value="hipster">Hipster (relianxd)</option>
+              <option value="qa">AI & QA (fundamantalist)</option>
+              <option value="semua">Semua Anggota</option>
+            </select>
+            <select id="new-task-phase" class="input-select">
+              <option value="Fase 3: Hacking Week">Fase 3: Hacking Week</option>
+              <option value="Fase 1: Registrasi">Fase 1: Registrasi</option>
+              <option value="Fase 2: Mentoring">Fase 2: Mentoring</option>
+              <option value="Fase 4: Submission">Fase 4: Submission</option>
+              <option value="Fase 5: Grand Final">Fase 5: Grand Final</option>
+            </select>
+            <button class="btn-submit" id="btn-add-task">Tambah</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right Column: Rules, Rubric, & Tools -->
+    <div>
+
+      <!-- Guidebook Strict Constraints -->
+      <div class="sidebar-widget">
+        <div class="widget-title">
+          <span>⚠️ Aturan Kritis Guidebook</span>
+        </div>
+        <div class="rule-box">
+          <strong>Video Demo 3–5 Menit Murni:</strong><br/>
+          Video wajib menampilkan antarmuka dan AI secara nyata <u>tanpa suara presentasi</u> atau suara lisan peserta.
+        </div>
+        <div class="rule-box">
+          <strong>Freeze Kode 14 November:</strong><br/>
+          Setelah 14 Nov 2026 pukul 23:59 WIB, repositori GitHub dilarang di-push/diubah lagi. Juri memverifikasi commit timestamp!
+        </div>
+        <div class="rule-box">
+          <strong>Offline Localhost Final:</strong><br/>
+          Di babak final luring, aplikasi wajib dapat didemonstrasikan langsung di environment localhost tanpa ketergantungan internet.
+        </div>
+      </div>
+
+      <!-- Rubrik Penilaian Resmi -->
+      <div class="sidebar-widget">
+        <div class="widget-title">
+          <span>📊 Bobot Penilaian Juri</span>
+        </div>
+        <div style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; justify-content: space-between;">
+            <span>Problem-Solution Fit</span>
+            <strong style="color: var(--secondary);">25%</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span>Technology Innovation & AI</span>
+            <strong style="color: var(--secondary);">25%</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span>Software Engineering</span>
+            <strong style="color: var(--secondary);">25%</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span>UI/UX & Aksesibilitas Difabel</span>
+            <strong style="color: var(--secondary);">15%</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span>Green IT & Etika AI</span>
+            <strong style="color: var(--secondary);">10%</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15-Minute Pitch Simulator -->
+      <div class="sidebar-widget">
+        <div class="widget-title">
+          <span>⏱️ Simulator Pitching Final (15 Menit)</span>
+        </div>
+        <div class="pitch-simulator">
+          <div class="pitch-segment-label" id="pitch-current-label">1. Persiapan Localhost (1 Menit)</div>
+          <div class="pitch-time-big" id="pitch-timer-display">01:00</div>
+          <div class="btn-row">
+            <button class="btn-action" id="btn-pitch-start">Mulai</button>
+            <button class="btn-action" id="btn-pitch-pause">Jeda</button>
+            <button class="btn-action" id="btn-pitch-next">Fase Berikutnya</button>
+            <button class="btn-action" id="btn-pitch-reset">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Roster -->
+      <div class="sidebar-widget">
+        <div class="widget-title">
+          <span>👥 Susunan Tim InklusiCare</span>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">TM</div>
+          <div class="team-info">
+            <div class="team-name">Tama1323</div>
+            <div class="team-role">Hustler / Lead Pitcher</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">AG</div>
+          <div class="team-info">
+            <div class="team-name">Archygaze</div>
+            <div class="team-role">Hacker / Fullstack Dev</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">RL</div>
+          <div class="team-info">
+            <div class="team-name">relianxd</div>
+            <div class="team-role">Hipster / UI/UX Accessibility</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">FM</div>
+          <div class="team-info">
+            <div class="team-name">fundamantalist</div>
+            <div class="team-role">AI Specialist / QA Lead</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <p>LOGICODIX 2026 Real-Time Tracker • Dibuat khusus untuk Tim InklusiCare (HIMTI UNESA Hackathon)</p>
+  </footer>
+
+</div>
+
+<script>
+  // Target Milestones (WIB / UTC+7)
+  const MILESTONES = {
+    batch2: new Date('2026-11-06T23:59:59+07:00').getTime(),
+    mentoring: new Date('2026-11-07T09:30:00+07:00').getTime(),
+    submission: new Date('2026-11-14T23:59:59+07:00').getTime(),
+    final: new Date('2026-11-29T08:30:00+07:00').getTime()
+  };
+
+  // Live System Clock & Countdowns
+  function updateClocks() {
+    const now = new Date().getTime();
+
+    // System Clock Display
+    const dateObj = new Date();
+    const timeStr = dateObj.toLocaleDateString('id-ID', {
+      weekday: 'long', year: 'numeric', month: 'short', day: 'numeric',
+      hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short'
+    });
+    document.getElementById('current-system-time').innerText = timeStr;
+
+    function renderCountdown(targetTime, prefix) {
+      const diff = targetTime - now;
+      if (diff <= 0) {
+        document.getElementById(`${prefix}-d`).innerText = '00';
+        document.getElementById(`${prefix}-h`).innerText = '00';
+        document.getElementById(`${prefix}-m`).innerText = '00';
+        document.getElementById(`${prefix}-s`).innerText = '00';
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById(`${prefix}-d`).innerText = String(days).padStart(2, '0');
+      document.getElementById(`${prefix}-h`).innerText = String(hours).padStart(2, '0');
+      document.getElementById(`${prefix}-m`).innerText = String(minutes).padStart(2, '0');
+      document.getElementById(`${prefix}-s`).innerText = String(seconds).padStart(2, '0');
+    }
+
+    renderCountdown(MILESTONES.batch2, 'batch2');
+    renderCountdown(MILESTONES.mentoring, 'mentoring');
+    renderCountdown(MILESTONES.submission, 'sub');
+    renderCountdown(MILESTONES.final, 'final');
+  }
+
+  setInterval(updateClocks, 1000);
+  updateClocks();
+
+  // Default Tasks List (from Official Guidebook)
+  const DEFAULT_TASKS = [
+    // Fase 1: Registrasi
+    { id: 't1', title: 'Registrasi Akun Tim di logicodix2026.site', role: 'hustler', phase: 'Fase 1: Registrasi', priority: 'critical', desc: 'Isi form pendaftaran tim dan masukkan data 4 anggota tim resmi.', completed: false },
+    { id: 't2', title: 'Pembayaran Registrasi Batch 2 via QRIS', role: 'hustler', phase: 'Fase 1: Registrasi', priority: 'critical', desc: 'Selesaikan transaksi dan simpan bukti tangkapan layar receipt.', completed: false },
+    { id: 't3', title: 'Gabung Grup WhatsApp Resmi Peserta', role: 'semua', phase: 'Fase 1: Registrasi', priority: 'normal', desc: 'Seluruh anggota wajib memantau pengumuman teknis dari narahubung panitia.', completed: false },
+
+    // Fase 2: Mentoring
+    { id: 't4', title: 'Hadir Sesi Mentoring Navasena (09:30–15:30 WIB)', role: 'semua', phase: 'Fase 2: Mentoring', priority: 'critical', desc: 'Pembekalan AI Integration, Problem Mapping, dan asistensi teknis.', completed: false },
+    { id: 't5', title: 'Finalisasi Problem-Solution Fit InklusiCare', role: 'hustler', phase: 'Fase 2: Mentoring', priority: 'high', desc: 'Validasi data Kemenkes (<5% faskes ramah difabel) untuk narasi proposal.', completed: false },
+    { id: 't6', title: 'Konsultasi Arsitektur AI & MVP dengan Mentor', role: 'hacker', phase: 'Fase 2: Mentoring', priority: 'high', desc: 'Pastikan kesesuaian API AI (Text-to-Speech & intent model) dengan batasan hackathon.', completed: false },
+
+    // Fase 3: Hacking Week
+    { id: 't7', title: 'Setup Repositori GitHub & .gitignore Bersih', role: 'hacker', phase: 'Fase 3: Hacking Week', priority: 'critical', desc: 'Struktur kode rapi, bebas file sampah, dan README petunjuk instalasi.', completed: true },
+    { id: 't8', title: 'Implementasi Fitur Silent Queue Token', role: 'hacker', phase: 'Fase 3: Hacking Week', priority: 'critical', desc: 'Sistem antrean visual sensorik ramah autisme & lansia di faskes.', completed: false },
+    { id: 't9', title: 'Implementasi Modul Voice Guide / TTS', role: 'hacker', phase: 'Fase 3: Hacking Week', priority: 'critical', desc: 'Pemandu suara real-time untuk penyandang disabilitas netra.', completed: false },
+    { id: 't10', title: 'Desain Antarmuka Standar WCAG 2.2 AA', role: 'hipster', phase: 'Fase 3: Hacking Week', priority: 'high', desc: 'Kontras rasio minimal 4.5:1, dukungan font disleksia, dan mode sensorik.', completed: false },
+    { id: 't11', title: 'Audit Aksesibilitas Keyboard & Screen Reader', role: 'hipster', phase: 'Fase 3: Hacking Week', priority: 'high', desc: 'Navigasi tab lengkap dengan ARIA landmark tanpa ketergantungan mouse.', completed: false },
+    { id: 't12', title: 'Integrasi API AI & Validasi Anti-Halusinasi', role: 'qa', phase: 'Fase 3: Hacking Week', priority: 'high', desc: 'Pastikan respon klasifikasi kesehatan stabil dengan disclaimer medis.', completed: false },
+    { id: 't13', title: 'Audit Performa Green IT & Zero Bug Kritis', role: 'qa', phase: 'Fase 3: Hacking Week', priority: 'normal', desc: 'Optimasi aset, efisiensi komputasi, dan pengujian end-to-end tanpa error.', completed: false },
+    { id: 't14', title: 'Penyusunan Slide Deck Pitching (7 Menit)', role: 'hustler', phase: 'Fase 3: Hacking Week', priority: 'high', desc: 'Storytelling tajam: masalah sosial nyata -> solusi teknologi -> bukti prototipe.', completed: false },
+
+    // Fase 4: Submission
+    { id: 't15', title: 'Perekaman Video Demo 3–5 Menit (TANPA SUARA LISAN)', role: 'hustler', phase: 'Fase 4: Submission', priority: 'critical', desc: 'Aturan mutlak panitia: Rekaman screen fungsionalitas dan integrasi AI murni.', completed: false },
+    { id: 't16', title: 'Freeze Kode Repositori GitHub Sebelum 14 Nov', role: 'hacker', phase: 'Fase 4: Submission', priority: 'critical', desc: 'Setelah 14 Nov 23:59 WIB, dilarang melakukan push/commit baru.', completed: false },
+    { id: 't17', title: 'Submit Link Video & Repositori ke Portal Lomba', role: 'hustler', phase: 'Fase 4: Submission', priority: 'critical', desc: 'Pengisian form submission resmi dan konfirmasi ke CP panitia.', completed: false },
+
+    // Fase 5: Grand Final
+    { id: 't18', title: 'Verifikasi Aplikasi Berjalan di Localhost Offline', role: 'hacker', phase: 'Fase 5: Grand Final', priority: 'critical', desc: 'Menghindari kendala jaringan saat presentasi di hadapan juri UNESA.', completed: false },
+    { id: 't19', title: 'Simulasi Waktu Pitching Ketat (15 Menit Total)', role: 'semua', phase: 'Fase 5: Grand Final', priority: 'high', desc: '1 min setup, 7 min pitch/demo, 3 min Q&A juri, 4 min penilaian.', completed: false }
+  ];
+
+  // Load Tasks from LocalStorage or Default
+  let tasks = JSON.parse(localStorage.getItem('logicodix_tasks_v1')) || DEFAULT_TASKS;
+
+  function saveTasks() {
+    localStorage.setItem('logicodix_tasks_v1', JSON.stringify(tasks));
+    renderTasks();
+  }
+
+  let currentRoleFilter = 'all';
+  let currentPhaseFilter = 'all';
+
+  function renderTasks() {
+    const container = document.getElementById('task-list-container');
+    container.innerHTML = '';
+
+    const filtered = tasks.filter(t => {
+      const matchRole = (currentRoleFilter === 'all') || (t.role === currentRoleFilter) || (t.role === 'semua');
+      const matchPhase = (currentPhaseFilter === 'all') || (t.phase === currentPhaseFilter);
+      return matchRole && matchPhase;
+    });
+
+    if (filtered.length === 0) {
+      container.innerHTML = `<div style="text-align: center; color: var(--text-dim); padding: 30px 0;">Tidak ada tugas yang sesuai filter saat ini.</div>`;
+    }
+
+    filtered.forEach(task => {
+      const el = document.createElement('div');
+      el.className = `task-item ${task.completed ? 'completed' : ''}`;
+      
+      let priorityBadge = '';
+      if (task.priority === 'critical') {
+        priorityBadge = `<span class="tag-priority-critical">KRITIS</span>`;
+      }
+
+      el.innerHTML = `
+        <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} data-id="${task.id}" id="check-${task.id}" aria-label="Tandai tugas ${task.title}" />
+        <div class="task-content">
+          <div class="task-top">
+            <span class="task-title">${task.title}</span>
+            <div class="task-meta">
+              ${priorityBadge}
+              <span class="tag-role">@${task.role.toUpperCase()}</span>
+              <span class="tag-phase">${task.phase}</span>
+            </div>
+          </div>
+          <div class="task-desc">${task.desc || ''}</div>
+        </div>
+      `;
+
+      el.querySelector('.task-checkbox').addEventListener('change', (e) => {
+        task.completed = e.target.checked;
+        saveTasks();
+      });
+
+      container.appendChild(el);
+    });
+
+    // Update Progress Bar
+    const total = tasks.length;
+    const completed = tasks.filter(t => t.completed).length;
+    const pct = total === 0 ? 0 : Math.round((completed / total) * 100);
+
+    document.getElementById('progress-bar-fill').style.width = `${pct}%`;
+    document.getElementById('progress-percent-label').innerText = `${pct}% Selesai (${completed}/${total} Tugas)`;
+  }
+
+  // Filter Event Handlers
+  document.querySelectorAll('[data-filter-role]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('[data-filter-role]').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      currentRoleFilter = e.target.getAttribute('data-filter-role');
+      renderTasks();
+    });
+  });
+
+  document.querySelectorAll('[data-filter-phase]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('[data-filter-phase]').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      currentPhaseFilter = e.target.getAttribute('data-filter-phase');
+      renderTasks();
+    });
+  });
+
+  // Add Custom Task
+  document.getElementById('btn-add-task').addEventListener('click', () => {
+    const titleInput = document.getElementById('new-task-title');
+    const roleInput = document.getElementById('new-task-role');
+    const phaseInput = document.getElementById('new-task-phase');
+
+    if (!titleInput.value.trim()) return;
+
+    tasks.push({
+      id: 'custom_' + Date.now(),
+      title: titleInput.value.trim(),
+      role: roleInput.value,
+      phase: phaseInput.value,
+      priority: 'normal',
+      desc: 'Tugas internal tambahan tim.',
+      completed: false
+    });
+
+    titleInput.value = '';
+    saveTasks();
+  });
+
+  // Reset Default Tasks
+  document.getElementById('btn-reset-tasks').addEventListener('click', () => {
+    if (confirm('Kembalikan checklist to-do ke pengaturan default guidebook?')) {
+      tasks = JSON.parse(JSON.stringify(DEFAULT_TASKS));
+      saveTasks();
+    }
+  });
+
+  // 15-Minute Pitch Simulator Engine
+  const PITCH_SEGMENTS = [
+    { name: '1. Persiapan Localhost di Hadapan Juri', duration: 60 },
+    { name: '2. Presentasi Slide Deck & Live Demo Produk', duration: 420 },
+    { name: '3. Sesi Tanya Jawab (Q&A) Kritis Dewan Juri', duration: 180 },
+    { name: '4. Transisi & Penilaian Skor Juri', duration: 240 }
+  ];
+
+  let currentSegmentIdx = 0;
+  let pitchSecondsLeft = PITCH_SEGMENTS[0].duration;
+  let pitchInterval = null;
+
+  function renderPitchDisplay() {
+    const mins = Math.floor(pitchSecondsLeft / 60);
+    const secs = pitchSecondsLeft % 60;
+    document.getElementById('pitch-timer-display').innerText = 
+      `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    document.getElementById('pitch-current-label').innerText = PITCH_SEGMENTS[currentSegmentIdx].name;
+  }
+
+  document.getElementById('btn-pitch-start').addEventListener('click', () => {
+    if (pitchInterval) return;
+    pitchInterval = setInterval(() => {
+      if (pitchSecondsLeft > 0) {
+        pitchSecondsLeft--;
+        renderPitchDisplay();
+      } else {
+        clearInterval(pitchInterval);
+        pitchInterval = null;
+        if (currentSegmentIdx < PITCH_SEGMENTS.length - 1) {
+          currentSegmentIdx++;
+          pitchSecondsLeft = PITCH_SEGMENTS[currentSegmentIdx].duration;
+          renderPitchDisplay();
+          alert(`Waktu segmen habis! Lanjut ke: ${PITCH_SEGMENTS[currentSegmentIdx].name}`);
+        } else {
+          alert('Simulasi 15 Menit Pitching Selesai!');
+        }
+      }
+    }, 1000);
+  });
+
+  document.getElementById('btn-pitch-pause').addEventListener('click', () => {
+    clearInterval(pitchInterval);
+    pitchInterval = null;
+  });
+
+  document.getElementById('btn-pitch-next').addEventListener('click', () => {
+    clearInterval(pitchInterval);
+    pitchInterval = null;
+    currentSegmentIdx = (currentSegmentIdx + 1) % PITCH_SEGMENTS.length;
+    pitchSecondsLeft = PITCH_SEGMENTS[currentSegmentIdx].duration;
+    renderPitchDisplay();
+  });
+
+  document.getElementById('btn-pitch-reset').addEventListener('click', () => {
+    clearInterval(pitchInterval);
+    pitchInterval = null;
+    currentSegmentIdx = 0;
+    pitchSecondsLeft = PITCH_SEGMENTS[0].duration;
+    renderPitchDisplay();
+  });
+
+  renderTasks();
+  renderPitchDisplay();
+</script>
+
+</body>
+</html>
