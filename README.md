@@ -25,6 +25,57 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 
 ---
 
+<!-- TIMELINE_TRACKER:START -->
+## ⏱️ Real-Time Timeline & Interactive Task Tracker
+
+![Competition Progress](assets/timeline_progress.svg?v=1792653960)
+
+*Buka Dashboard Web Interaktif di [`tracker/index.html`](tracker/index.html) untuk melihat hitung mundur live detik-demi-detik dan simulator timer pitching.*
+
+### Interactive Task List (Click checkboxes directly on GitHub)
+
+#### 1. Registrasi & Administrasi Tim (Batas: 06 November 2026, 23:59 WIB)
+- [ ] Daftarkan akun tim InklusiCare di portal [logicodix2026.site/register](https://logicodix2026.site/register)
+- [ ] Validasi data 4 anggota tim resmi: Tama1323 (Lead), Archygaze (Tech), relianxd (UI/UX), fundamantalist (AI/QA)
+- [ ] Selesaikan pembayaran registrasi Batch 2 via QRIS resmi dan simpan bukti invoice/receipt
+- [ ] Pastikan seluruh anggota tim bergabung ke grup WhatsApp resmi peserta lomba
+
+#### 2. Sesi Mentoring Wajib Navasena (07 November 2026)
+- [ ] Hadir tepat waktu pada sesi Daring Mentoring Navasena (Sabtu, 7 Nov 2026, 09.30 – 15.30 WIB)
+- [ ] Konsultasikan arsitektur integrasi AI (Text-to-Speech & intent model) dengan mentor Navasena
+- [ ] Validasi alur user experience dan pemenuhan standar aksesibilitas disabilitas
+- [ ] Finalisasi spesifikasi fitur Minimum Viable Product (MVP) yang akan dibangun selama 7 hari
+
+#### 3. Hacking Week — Pengembangan MVP InklusiCare (07 – 14 November 2026)
+- [x] Inisialisasi struktur repositori GitHub dan `.gitignore` bersih (*Done*)
+- [ ] **[Archygaze / Hacker]** Implementasi arsitektur sistem & integrasi backend/API MVP
+- [ ] **[Archygaze / Hacker]** Bangun fitur **Silent Queue Token** (antrean visual sensorik ramah autisme & lansia)
+- [ ] **[Archygaze / Hacker]** Bangun modul **Voice Guide / Text-to-Speech (TTS)** untuk disabilitas netra
+- [ ] **[Archygaze / Hacker]** Integrasi peta fasilitas kesehatan ramah difabel (*Accessible Healthcare Mapping*)
+- [ ] **[relianxd / Hipster]** Desain antarmuka berstandar **WCAG 2.2 AA** (rasio kontras 4.5:1, font disleksia, calming mode)
+- [ ] **[relianxd / Hipster]** Audit navigasi keyboard & pembaca layar (*screen reader friendly*)
+- [ ] **[fundamantalist / QA]** Validasi performa model AI & pengujian stabilitas anti-halusinasi data medis
+- [ ] **[fundamantalist / QA]** Audit efisiensi Green IT & pengujian end-to-end tanpa bug kritis (*Zero Bug*)
+- [ ] **[Tama1323 / Hustler]** Penyusunan slide presentasi (*pitch deck* 7 menit) berbasis data validasi Kemenkes
+
+#### 4. Berkas Pengumpulan / Submission Wajib (Batas: 14 November 2026, 23:59 WIB)
+- [ ] **[Wajib]** Rekam video demonstrasi aplikasi durasi **3 – 5 Menit** (murni demo fitur tanpa suara presentasi)
+- [ ] Tampilkan integrasi Artificial Intelligence (AI) secara nyata pada rekaman video
+- [ ] Unggah video ke YouTube (Unlisted/Public) atau Google Drive (akses publik)
+- [ ] **[Wajib]** Freeze repositori GitHub sebelum 14 November 2026 pukul 23:59 WIB (kode dilarang diubah lagi)
+- [ ] Submit tautan video demo & repositori ke formulir pengumpulan portal LOGICODIX 2026
+- [ ] Konfirmasi pengumpulan ke narahubung panitia (Rohman: 08998713858 / Rivana: 083142142252)
+
+#### 5. Persiapan Babak Final Luring (Top 8 Finalis — 29 November 2026)
+- [ ] Pastikan aplikasi berjalan 100% stabil di environment **`localhost`** offline di depan juri
+- [ ] Simulasi format waktu pitching ketat: 1 menit setup + 7 menit demo/pitch + 3 menit Q&A juri
+- [ ] Siapkan laptop cadangan, converter HDMI, dan charger
+- [ ] Hadir di Gedung Auditorium Utama UNESA Surabaya untuk Grand Final & Awarding
+
+<!-- TIMELINE_TRACKER:END -->
+
+---
+
 ## 📂 Peta & Struktur Repositori
 
 ```text
