@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎬 Hi there, I'm <span style="color: #6C5CE7;">bluntforc0d3</span> 👋
+# 🎬 Hi there, I'm <span style="color: #6C5CE7;">Archygaze</span> 👋
 ### **VFX Artist & Motion Designer (6+ Years) ➔ Aspiring Game Developer & Creative Technologist**
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=6C5CE7&center=true&vCenter=true&multiline=false&width=650&height=50&lines=Senior+VFX+Artist+%26+Compositor+(6%2B+Yrs);Motion+Graphics+%26+Color+Grading+Specialist;Exploring+Game+Development+%26+3D+Animation;Creative+Technologist+%26+Programmer)](https://git.io/typing-svg)
@@ -92,12 +92,12 @@ Currently, I am expanding my creative horizon into **Game Development, 3D Animat
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=bluntforc0d3&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" width="48%" alt="GitHub Stats" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bluntforc0d3&layout=compact&theme=tokyonight&hide_border=true" width="48%" alt="Top Languages" />
+<img src="https://github-readme-stats.vercel.app/api?username=Archygaze&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" width="48%" alt="GitHub Stats" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Archygaze&layout=compact&theme=tokyonight&hide_border=true" width="48%" alt="Top Languages" />
 
 <br/>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=bluntforc0d3&theme=tokyonight&hide_border=true" width="96%" alt="GitHub Streak" />
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Archygaze&theme=tokyonight&hide_border=true" width="96%" alt="GitHub Streak" />
 
 </div>
 
@@ -135,6 +135,6 @@ Currently, I am expanding my creative horizon into **Game Development, 3D Animat
 
 <br/><br/>
 
-<img src="https://komarev.com/ghpvc/?username=bluntforc0d3&color=6C5CE7&style=flat-square&label=PROFILE+VIEWS" alt="Profile Views" />
+<img src="https://komarev.com/ghpvc/?username=Archygaze&color=6C5CE7&style=flat-square&label=PROFILE+VIEWS" alt="Profile Views" />
 
 </div>

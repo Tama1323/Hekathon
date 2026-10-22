@@ -59,7 +59,7 @@ Kompetisi ini berfokus pada pengembangan solusi digital inovatif berbasis **Web 
 │   └── 05_pelayanan_publik_civic_tech.md             # Subtema 5: Civic Tech & Community Service
 │
 └── 📁 profile/                                       # Profil personal anggota tim
-    └── 📄 GITHUB_PROFILE_README.md                   # Personal profile README bluntforc0d3
+    └── 📄 GITHUB_PROFILE_README.md                   # Personal profile README Archygaze
 ```
 
 ---
