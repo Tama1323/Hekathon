@@ -33,6 +33,7 @@ Dokumen di dalam direktori `project_netranav/` ini disusun lengkap sebagai pandu
 | **[`02_FITUR_MVP_DAN_SPESIFIKASI_TEKNIS.md`](02_FITUR_MVP_DAN_SPESIFIKASI_TEKNIS.md)** | Arsitektur 4 pilar fitur MVP, alur deteksi objek kamera, pemetaan haptic vibration, dan Web Speech API. |
 | **[`03_MODEL_BISNIS_B2G_B2B_B2C.md`](03_MODEL_BISNIS_B2G_B2B_B2C.md)** | Strategi monetisasi berkelanjutan: B2G Smart City Heatmap data, B2B Lisensi Stasiun/Mall, dan B2C Caregiver Companion. |
 | **[`04_STRATEGI_PITCHING_DAN_RUBRIK_JURI.md`](04_STRATEGI_PITCHING_DAN_RUBRIK_JURI.md)** | Struktur slide pitching 7 menit, formula narasi storytelling, dan panduan jawaban pamungkas sesi Q&A juri. |
+| **[`05_USER_JOURNEY_DAN_ALUR_INTERAKSI_VOICE.md`](05_USER_JOURNEY_DAN_ALUR_INTERAKSI_VOICE.md)** | Alur interaksi suara hands-free (Siri/Google Assistant), tanya lokasi, navigasi otomatis, live camera guardian, hingga auto-stop saat tiba. |
 
 ---
 

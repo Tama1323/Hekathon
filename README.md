@@ -87,7 +87,8 @@ Berdasarkan analisis data sekunder resmi dari Kementerian Kesehatan RI (Kemenkes
     ├── 📄 01_PROBLEM_STATEMENT_DAN_DATA.md           # Data 3.7M tunanetra, krisis trotoar, & gap kompetitor
     ├── 📄 02_FITUR_MVP_DAN_SPESIFIKASI_TEKNIS.md     # Arsitektur 4 fitur MVP, Edge AI, Haptic, & Fall SOS
     ├── 📄 03_MODEL_BISNIS_B2G_B2B_B2C.md             # Monetisasi B2G Smart City, B2B Lisensi, & B2C Caregiver
-    └── 📄 04_STRATEGI_PITCHING_DAN_RUBRIK_JURI.md    # Slide 7 menit, antisipasi Q&A, & rubrik LOGICODIX
+    ├── 📄 04_STRATEGI_PITCHING_DAN_RUBRIK_JURI.md    # Slide 7 menit, antisipasi Q&A, & rubrik LOGICODIX
+    └── 📄 05_USER_JOURNEY_DAN_ALUR_INTERAKSI_VOICE.md # Alur interaksi suara hands-free hingga tiba di tujuan
 ```
 
 ---
