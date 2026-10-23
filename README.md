@@ -74,13 +74,20 @@ Berdasarkan analisis data sekunder resmi dari Kementerian Kesehatan RI (Kemenkes
 │       ├── 03_pre_logicodix_2023.md                  # Analisis edisi 2023 (UI/UX & X-Project)
 │       └── 04_analisis_pola_kemenangan_hackathon_2026.md # Formula kemenangan & rubrik juri
 │
-└── 📁 ideasi/                                        # Matriks komparasi & evaluasi subtema lomba
-    ├── 00_RINGKASAN_DAN_FRAMEWORK.md                 # Matriks komparasi 5 subtema & scoring
-    ├── 01_edutech_ai_tutor.md                        # Subtema 1: Smart & Fun Education
-    ├── 02_green_it_climate.md                        # Subtema 2: Green Environment & Sustainability
-    ├── 03_digitalisasi_bisnis_umkm.md                # Subtema 3: Local MSME & Creative Economy
-    ├── 04_healthtech_care.md                         # Subtema 4: Inclusive Health (Fokus Utama)
-    └── 05_pelayanan_publik_civic_tech.md             # Subtema 5: Civic Tech & Community Service
+├── 📁 ideasi/                                        # Matriks komparasi & evaluasi subtema lomba
+│   ├── 00_RINGKASAN_DAN_FRAMEWORK.md                 # Matriks komparasi 5 subtema & scoring
+│   ├── 01_edutech_ai_tutor.md                        # Subtema 1: Smart & Fun Education
+│   ├── 02_green_it_climate.md                        # Subtema 2: Green Environment & Sustainability
+│   ├── 03_digitalisasi_bisnis_umkm.md                # Subtema 3: Local MSME & Creative Economy
+│   ├── 04_healthtech_care.md                         # Subtema 4: Inclusive Health (Fokus Utama)
+│   └── 05_pelayanan_publik_civic_tech.md             # Subtema 5: Civic Tech & Community Service
+│
+└── 📁 project_netranav/                              # Inovasi Utama: Smart Spatial Navigation for the Blind
+    ├── 📄 README.md                                  # Visi, ringkasan eksekutif, & keunggulan kompetitif
+    ├── 📄 01_PROBLEM_STATEMENT_DAN_DATA.md           # Data 3.7M tunanetra, krisis trotoar, & gap kompetitor
+    ├── 📄 02_FITUR_MVP_DAN_SPESIFIKASI_TEKNIS.md     # Arsitektur 4 fitur MVP, Edge AI, Haptic, & Fall SOS
+    ├── 📄 03_MODEL_BISNIS_B2G_B2B_B2C.md             # Monetisasi B2G Smart City, B2B Lisensi, & B2C Caregiver
+    └── 📄 04_STRATEGI_PITCHING_DAN_RUBRIK_JURI.md    # Slide 7 menit, antisipasi Q&A, & rubrik LOGICODIX
 ```
 
 ---
